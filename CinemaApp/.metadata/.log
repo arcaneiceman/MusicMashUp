@@ -1,0 +1,764 @@
+!SESSION 2014-02-26 23:58:30.570 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product -data C:\Users\Wali\Desktop\CinemaApp -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-26 23:58:39.022
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyType.initialize(ProxyType.java:517)
+	at org.eclipse.core.internal.net.ProxyManager.initialize(ProxyManager.java:274)
+	at org.eclipse.core.internal.net.Activator.start(Activator.java:181)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.SingleSourcePackage.loadClass(SingleSourcePackage.java:35)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:461)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.activateProxyService(IDEWorkbenchAdvisor.java:290)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.postStartup(IDEWorkbenchAdvisor.java:270)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2548)
+	at org.eclipse.ui.internal.Workbench.access$7(Workbench.java:2431)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:586)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-02-26 23:59:27.485
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-02-26 23:59:27.487
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wali'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:05:42.147
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.egit.ui.EclipseAuthenticator.getPasswordAuthentication(EclipseAuthenticator.java:28)
+	at java.net.Authenticator.requestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.privilegedRequestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getHttpProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.resetProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.core.BinaryMethod$1.run(BinaryMethod.java:295)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:05:42.168
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:05:42.169
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:07:07.124
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.egit.ui.EclipseAuthenticator.getPasswordAuthentication(EclipseAuthenticator.java:28)
+	at java.net.Authenticator.requestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.privilegedRequestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getHttpProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.resetProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.core.BinaryMethod$1.run(BinaryMethod.java:295)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:07:07.126
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:07:07.126
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:07:41.865
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.egit.ui.EclipseAuthenticator.getPasswordAuthentication(EclipseAuthenticator.java:28)
+	at java.net.Authenticator.requestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.privilegedRequestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getHttpProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.resetProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:07:41.868
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:07:41.868
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2014-02-27 00:07:41.870
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/lang/Object.html
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:820)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/lang/Object.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	... 9 more
+Caused by: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/lang/Object.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.jdt.core 4 985 2014-02-27 00:07:41.873
+!MESSAGE Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/lang/Object.html
+!STACK 0
+java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/lang/Object.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:08:00.420
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.egit.ui.EclipseAuthenticator.getPasswordAuthentication(EclipseAuthenticator.java:28)
+	at java.net.Authenticator.requestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.privilegedRequestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getHttpProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.resetProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.core.BinaryMethod$1.run(BinaryMethod.java:295)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:08:00.422
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:08:00.422
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:08:00.698
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.egit.ui.EclipseAuthenticator.getPasswordAuthentication(EclipseAuthenticator.java:28)
+	at java.net.Authenticator.requestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.privilegedRequestPasswordAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getHttpProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.resetProxyAuthentication(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:08:00.700
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:08:00.701
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2014-02-27 00:08:00.702
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/io/PrintStream.html
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:820)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/io/PrintStream.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	... 9 more
+Caused by: java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/io/PrintStream.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.jdt.core 4 985 2014-02-27 00:08:00.703
+!MESSAGE Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/io/PrintStream.html
+!STACK 0
+java.io.IOException: Server returned HTTP response code: 407 for URL: http://download.oracle.com/javase/7/docs/api/java/io/PrintStream.html
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at org.eclipse.jdt.internal.core.JavaElement.getURLContents(JavaElement.java:765)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1037)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:463)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:95)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:58)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:555)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.ui 2 2 2014-02-27 00:09:12.746
+!MESSAGE Invalid preference category path: org.eclipse.jst.j2ee.ui.preferencePages.JavaEE (bundle: org.eclipse.jst.j2ee.ejb.annotations.xdoclet, page: org.eclipse.jst.j2ee.ejb.annotations.xdoclet.preference)
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:09:34.475
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.core.internal.net.ProxySelector.getProxyData(ProxySelector.java:89)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.getProxyData(ProxyEntriesComposite.java:323)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.initializeValues(ProxyEntriesComposite.java:263)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.createWidgets(ProxyEntriesComposite.java:131)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.<init>(ProxyEntriesComposite.java:58)
+	at org.eclipse.ui.internal.net.ProxyPreferencePage.createProxyEntriesComposite(ProxyPreferencePage.java:83)
+	at org.eclipse.ui.internal.net.ProxyPreferencePage.createContents(ProxyPreferencePage.java:54)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:232)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1502)
+	at org.eclipse.jface.preference.PreferenceDialog$14.run(PreferenceDialog.java:1259)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1253)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:675)
+	at org.eclipse.jface.preference.PreferenceDialog$10.run(PreferenceDialog.java:709)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.preference.PreferenceDialog$9.selectionChanged(PreferenceDialog.java:705)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4144)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:65)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1029)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:923)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:09:34.478
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:09:34.479
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:10:14.509
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyManager.getProxyData(ProxyManager.java:169)
+	at org.eclipse.core.internal.net.ProxyManager.doSetProxyData(ProxyManager.java:187)
+	at org.eclipse.core.internal.net.ProxyManager.setProxyData(ProxyManager.java:183)
+	at org.eclipse.core.internal.net.ProxySelector.setProxyData(ProxySelector.java:106)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.performApply(ProxyEntriesComposite.java:297)
+	at org.eclipse.ui.internal.net.ProxyPreferencePage.performApply(ProxyPreferencePage.java:101)
+	at org.eclipse.jface.preference.PreferencePage$2.widgetSelected(PreferencePage.java:281)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:65)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1029)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:923)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.512
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.513
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 4 0 2014-02-27 00:10:14.514
+!MESSAGE Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+!STACK 0
+org.eclipse.equinox.security.storage.StorageException: Unable to locate secure storage module (org.eclipse.equinox.security.windowspasswordprovider64bit).
+	at org.eclipse.equinox.internal.security.storage.PasswordProviderSelector.findStorageModule(PasswordProviderSelector.java:190)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getModulePassword(SecurePreferencesRoot.java:231)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesRoot.getPassword(SecurePreferencesRoot.java:224)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.get(SecurePreferences.java:262)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.get(SecurePreferencesWrapper.java:106)
+	at org.eclipse.core.internal.net.ProxyType.loadProxyAuth(ProxyType.java:537)
+	at org.eclipse.core.internal.net.ProxyType.createProxyData(ProxyType.java:138)
+	at org.eclipse.core.internal.net.ProxyType.getProxyData(ProxyType.java:127)
+	at org.eclipse.core.internal.net.ProxyType.setProxyData(ProxyType.java:151)
+	at org.eclipse.core.internal.net.ProxyManager.internalSetProxyData(ProxyManager.java:201)
+	at org.eclipse.core.internal.net.ProxyManager.doSetProxyData(ProxyManager.java:189)
+	at org.eclipse.core.internal.net.ProxyManager.setProxyData(ProxyManager.java:183)
+	at org.eclipse.core.internal.net.ProxySelector.setProxyData(ProxySelector.java:106)
+	at org.eclipse.ui.internal.net.ProxyEntriesComposite.performApply(ProxyEntriesComposite.java:297)
+	at org.eclipse.ui.internal.net.ProxyPreferencePage.performApply(ProxyPreferencePage.java:101)
+	at org.eclipse.jface.preference.PreferencePage$2.widgetSelected(PreferencePage.java:281)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:65)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1029)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:923)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.516
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.517
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.588
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.589
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.590
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.591
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.592
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.593
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.595
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:14.596
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:49.745
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:49.746
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:49.747
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:10:49.748
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.jface 4 2 2014-02-27 00:10:54.967
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jface".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.dialogs.ViewsPreferencePage.createContents(ViewsPreferencePage.java:74)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:232)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1502)
+	at org.eclipse.jface.preference.PreferenceDialog$14.run(PreferenceDialog.java:1259)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1253)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:675)
+	at org.eclipse.jface.preference.PreferenceDialog$10.run(PreferenceDialog.java:709)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.preference.PreferenceDialog$9.selectionChanged(PreferenceDialog.java:705)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:888)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:886)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1226)
+	at org.eclipse.jface.viewers.StructuredViewer$5.widgetSelected(StructuredViewer.java:1251)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy.access$5(OpenStrategy.java:256)
+	at org.eclipse.jface.util.OpenStrategy$3.run(OpenStrategy.java:433)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4144)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:65)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1029)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:923)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.860
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.862
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.864
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.896
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.897
+!MESSAGE System property http.proxyHost is set to 172.25.10.3 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.898
+!MESSAGE System property http.proxyPort is set to 80 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.935
+!MESSAGE System property socksProxyHost is not set but should be 127.0.0.1.
+
+!ENTRY org.eclipse.core.net 1 0 2014-02-27 00:11:12.936
+!MESSAGE System property socksProxyPort is not set but should be 1080.
+
+!ENTRY org.eclipse.jface 4 0 2014-02-27 00:11:13.609
+!MESSAGE java.lang.NullPointerException
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.dialogs.ViewsPreferencePage.performOk(ViewsPreferencePage.java:154)
+	at org.eclipse.jface.preference.PreferenceDialog$13.run(PreferenceDialog.java:965)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:945)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:448)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:171)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:233)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:624)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:215)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:65)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1029)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:923)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+!SESSION 2014-03-13 14:13:59.113 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-03-13 14:14:53.229
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2014-03-13 14:14:53.316
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Usmani'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

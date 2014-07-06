@@ -1,0 +1,1098 @@
+!SESSION 2014-05-18 13:09:15.163 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product -data C:\Users\Wali\Desktop\Current Projects\Android Projects -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-05-18 13:09:18.046
+!MESSAGE Unable to access file "plugins/org.eclipse.jdt.doc.user_3.8.2.v20130121-200410.jar!META-INF/MANIFEST.MF".
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-05-18 13:09:18.563
+!MESSAGE Unable to access file "plugins/org.eclipse.wst.jsdt.ui_1.1.202.v201208171701.jar!META-INF/MANIFEST.MF".
+!SESSION 2014-06-06 10:54:16.178 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-06-06 10:54:17.468
+!MESSAGE Unable to access file "plugins/org.eclipse.jdt.doc.user_3.8.2.v20130121-200410.jar!META-INF/MANIFEST.MF".
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-06-06 10:54:17.695
+!MESSAGE Unable to access file "plugins/org.eclipse.wst.jsdt.ui_1.1.202.v201208171701.jar!META-INF/MANIFEST.MF".
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:15.110
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 10:59:15.181
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 10:59:16.798
+!MESSAGE Connection to http://subclipse.trigris.org/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.osgi 2 1 2014-06-06 10:59:17.006
+!MESSAGE NLS unused message: CacheManager_CannotLoadNonUrlLocation in: org.eclipse.equinox.internal.p2.repository.messages
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:17.010
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://subclipse.trigris.org/content.xml
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2014-06-06 10:59:17.011
+!MESSAGE Unknown Host: http://subclipse.trigris.org/content.xml
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:25.570
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 10:59:25.570
+!MESSAGE No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 10:59:31.509
+!MESSAGE Connection to http://subclipse.trigris.org/update_1.8.x/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:31.739
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://subclipse.trigris.org/update_1.8.x/content.xml
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2014-06-06 10:59:31.740
+!MESSAGE Unknown Host: http://subclipse.trigris.org/update_1.8.x/content.xml
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:41.356
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 10:59:41.356
+!MESSAGE No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 10:59:43.109
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads..
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 10:59:43.109
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads..
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 10:59:46.811
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.811
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.811
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 10:59:46.885
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:46.885
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:46.885
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 10:59:48.558
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.558
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.558
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 10:59:48.560
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.560
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.561
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.561
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.561
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.561
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.562
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.562
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.562
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 10:59:48.562
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 10:59:48.562
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.131
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.132
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.132
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://subclipse.trigris.org.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.132
+!MESSAGE No repository found at http://subclipse.trigris.org.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.133
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.133
+!MESSAGE No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.134
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://subclipse.trigris.org/update_1.8.x.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.134
+!MESSAGE No repository found at http://subclipse.trigris.org/update_1.8.x.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.135
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.135
+!MESSAGE No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:04:54.136
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads..
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:636)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:04:54.136
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads..
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 11:04:56.225
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.225
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.225
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 11:04:56.249
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:56.249
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:56.249
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 11:04:57.898
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.898
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.898
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.898
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.898
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.899
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.899
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.899
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.899
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2014-06-06 11:04:57.900
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.900
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.900
+!MESSAGE Software being installed: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.900
+!MESSAGE Software currently installed: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.901
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE Git Team Provider Core 2.0.0.201206130900-r (org.eclipse.egit.core 2.0.0.201206130900-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE Git Team Provider Core 2.2.0.201212191850-r (org.eclipse.egit.core 2.2.0.201212191850-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE Git Team Provider Core 2.3.1.201302201838-r (org.eclipse.egit.core 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE Git Team Provider Core 2.1.0.201209190230-r (org.eclipse.egit.core 2.1.0.201209190230-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE Git Team Provider Core 3.3.2.201404171909-r (org.eclipse.egit.core 3.3.2.201404171909-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.901
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE From: EGit Plug-in Import 2.3.1.201302201838-r (org.eclipse.egit.import 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE To: package org.eclipse.egit.core.internal [2.3.1,2.4.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.901
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE From: EGit Plug-in Import Support 2.3.1.201302201838-r (org.eclipse.egit.import.feature.group 2.3.1.201302201838-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE To: org.eclipse.egit.import [2.3.1.201302201838-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.901
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE From: Task focused interface for Eclipse Git Team Provider 3.3.2.201404171909-r (org.eclipse.egit.mylyn.feature.group 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE To: org.eclipse.egit.mylyn.ui [3.3.2.201404171909-r]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2014-06-06 11:04:57.901
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE From: EGit Mylyn UI 3.3.2.201404171909-r (org.eclipse.egit.mylyn.ui 3.3.2.201404171909-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2014-06-06 11:04:57.901
+!MESSAGE To: package org.eclipse.egit.core [3.3.2,3.4.0)
+!SESSION 2014-06-06 11:05:41.191 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 11:06:52.752
+!MESSAGE Connection to http://subclipse.trigris.org/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.osgi 2 1 2014-06-06 11:06:53.007
+!MESSAGE NLS unused message: CacheManager_CannotLoadNonUrlLocation in: org.eclipse.equinox.internal.p2.repository.messages
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:06:53.012
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://subclipse.trigris.org/content.xml
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2014-06-06 11:06:53.013
+!MESSAGE Unknown Host: http://subclipse.trigris.org/content.xml
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:07:00.718
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:07:00.718
+!MESSAGE No repository found at jar:file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:07:14.100
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:07:14.100
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 11:07:14.111
+!MESSAGE Connection to http://subclipse.trigris.org/update_1.8.x/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:07:14.341
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://subclipse.trigris.org/update_1.8.x/content.xml
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2014-06-06 11:07:14.342
+!MESSAGE Unknown Host: http://subclipse.trigris.org/update_1.8.x/content.xml
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:232)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:07:23.123
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:07:23.123
+!MESSAGE No repository found at file:/C:/Users/Mutahir/Desktop/org.eclipse.sdk.examples-4.2.2/.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-06-06 11:07:24.835
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://download.eclipse.org/eclipse/downloads..
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:393)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:675)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2014-06-06 11:07:24.836
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/downloads..
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 11:07:41.590
+!MESSAGE Connection to http://subclipse.trigris.org/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:104)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:160)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactRepositories(ProvisioningContext.java:143)
+	at org.eclipse.equinox.internal.p2.engine.phases.Sizing.completePhase(Sizing.java:91)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:241)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:239)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.getSize(ProvUI.java:230)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.SizeComputingWizardPage$1.run(SizeComputingWizardPage.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-06-06 11:07:50.434
+!MESSAGE Connection to http://subclipse.trigris.org/update_1.8.x/p2.index failed on subclipse.trigris.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: subclipse.trigris.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:355)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:721)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:640)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:104)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:160)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactRepositories(ProvisioningContext.java:143)
+	at org.eclipse.equinox.internal.p2.engine.phases.Sizing.completePhase(Sizing.java:91)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:241)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:239)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.getSize(ProvUI.java:230)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.SizeComputingWizardPage$1.run(SizeComputingWizardPage.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-06-06 11:11:14.881 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-06-06 11:11:20.171
+!MESSAGE Unable to access file "plugins/org.eclipse.jdt.doc.user_3.8.2.v20130121-200410.jar!META-INF/MANIFEST.MF".
+
+!ENTRY org.eclipse.update.configurator 4 0 2014-06-06 11:11:20.401
+!MESSAGE Unable to access file "plugins/org.eclipse.wst.jsdt.ui_1.1.202.v201208171701.jar!META-INF/MANIFEST.MF".
