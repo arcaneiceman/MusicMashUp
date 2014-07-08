@@ -5,11 +5,12 @@
     android:background="@drawable/bg_five"
     android:gravity="top"
     android:padding="0dp"
+    android:id="@+id/screen"
     android:paddingBottom="20dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.tracktrixlite.MainActivity$PlaceholderFragment" >
+    tools:context="com.tracktrixlite.MainActivity$PlaceholderFragment" >
 
     <LinearLayout
         android:id="@+id/player_header_bg"
@@ -24,18 +25,28 @@
         <!-- Song Title -->
 
         <TextView
-            android:id="@+id/songTitle"
+            android:id="@+id/TOP"
             android:layout_width="wrap_content"
             android:layout_height="39dp"
             android:layout_weight="0.83"
             android:paddingBottom="2dp"
             android:paddingLeft="10dp"
-            android:text="Tracktrix : Start Mode"
+            android:text="Status : Start Up"
             android:textColor="#04b3d2"
             android:textSize="16dp"
             android:textStyle="bold" />
 
         <!-- Playlist button -->
+		<Button
+            android:id="@+id/reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@null"
+            android:drawableTop="@drawable/openmusicfile"
+            android:text="Reset"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:onClick="resetbutton_pressed" />
 
         <Button
             android:id="@+id/openfilebhv"
@@ -45,7 +56,8 @@
             android:drawableTop="@drawable/openmusicfile"
             android:text="Open File"
             android:textColor="#ffffff"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:onClick="openfile_pressed" />
 
         <Button
             android:id="@+id/settingsbhv"
@@ -86,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
-                android:text="Song Title"
+                android:text="No Selection"
                 android:textColor="#04b3d2"
                 android:textSize="22dp"
                 android:textStyle="bold" />
@@ -98,7 +110,7 @@
                 android:layout_below="@+id/SongTitle"
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
-                android:text="Album Name"
+                android:text="N/A"
                 android:textColor="#04b3d2"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -110,7 +122,7 @@
                 android:layout_below="@+id/SongTitle"
                 android:layout_marginTop="10dp"
                 android:paddingLeft="10dp"
-                android:text="Artist"
+                android:text="N/A"
                 android:textColor="#04b3d2"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -149,7 +161,18 @@
                 android:textColor="#ffffff"
                 android:textSize="16dp"
                 android:textStyle="bold" 
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="10dp"/>
+            
+            <Button
+                android:id="@+id/restart_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:text="Restart"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                android:textStyle="bold" 
+                android:layout_marginLeft="10dp"/>
 
             <Button
                 android:id="@+id/render_button"
@@ -161,7 +184,7 @@
                 android:textColor="#ffffff"
                 android:textSize="16dp"
                 android:textStyle="bold" 
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="10dp"/>
 
             <Button
                 android:id="@+id/save_button"
@@ -173,8 +196,8 @@
                 android:textColor="#ffffff"
                 android:textSize="16dp"
                 android:textStyle="bold" 
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -201,26 +224,22 @@
             <Button
                 android:id="@+id/play_pause_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginLeft="15dp"
-                android:background="@null"
-                android:drawableTop="@drawable/play_icon"
-                android:text="Play"
+                android:background="@drawable/play_icon"
+                android:onClick="play_pause_button_pressed"
                 android:textColor="#ffffff"
-                android:textSize="12dp" 
-                android:onClick="play_pause_button_pressed"/>
+                android:textSize="12dp" />
 
             <Button
                 android:id="@+id/stop_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:layout_marginLeft="15dp"
-                android:background="@null"
-                android:drawableTop="@drawable/stop_icon"
-                android:text="Stop"
+                android:background="@drawable/stop_icon"
+                android:onClick="stopbutton_pressed"
                 android:textColor="#ffffff"
-                android:textSize="12dp" 
-                android:onClick="stopbutton_pressed"/>
+                android:textSize="12dp" />
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
