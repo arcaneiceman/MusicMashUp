@@ -3,10 +3,11 @@
     package="com.example.tracktrixlite"
     android:versionCode="1"
     android:versionName="1.0" >
-	
+
     <!-- permissions are here -->
     <uses-permission android:name="android.permisson.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-sdk
         android:minSdkVersion="8"

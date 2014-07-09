@@ -14,12 +14,10 @@ import android.os.Environment;
 import com.tracktrixlite.Tools;
 public class RecorderStream{
 
-	//public String FileName=null;
-//	private static final int RECORDER_BPP = 16;
-	private String AUDIO_RECORDER_TEMP_FILE;
-	private String songname;
-	private static final int RECORDER_SAMPLERATE = 44100;
-	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;
+	private String SongName;
+
+	private static final int RECORDER_SAMPLERATE = 8000;
+	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 
 	private AudioRecord recorder = null;
@@ -28,10 +26,8 @@ public class RecorderStream{
 	private boolean isRecording = false;
 
 	
-	public RecorderStream(String Fname,int totalsongbytes){
-		//FileName=Fname;
-		AUDIO_RECORDER_TEMP_FILE=Fname+"-temp";
-		songname=Fname;
+	public RecorderStream(String SName){
+		SongName=SName;
 		bufferSize = AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING);
 		recorder = new AudioRecord(MediaRecorder.AudioSource.MIC,RECORDER_SAMPLERATE, RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING, bufferSize);
 		recordingThread = new Thread(new Runnable() {
@@ -40,6 +36,8 @@ public class RecorderStream{
 				writeAudioDataToFile();
 			}
 		},"AudioRecorder Thread");
+		//recordingThread.setPriority(HIGH PRIORIY);
+		System.out.println("Recorder Init Successful!");
 	}
 
 	public void startRecording(){
@@ -68,13 +66,12 @@ public class RecorderStream{
 	
 	private void writeAudioDataToFile(){
 		byte data[] = new byte[bufferSize];
-		String filename = Tools.getTempFilename(AUDIO_RECORDER_TEMP_FILE);
+		String filename = Tools.getFilename(SongName,"-t");
 		FileOutputStream os = null;
 
 		try {
 			os = new FileOutputStream(filename);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

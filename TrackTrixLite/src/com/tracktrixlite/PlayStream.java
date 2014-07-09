@@ -14,8 +14,9 @@ import android.media.AudioTrack;
 public class PlayStream {
 
 	AudioTrack AudioInputBuffer;
-	File songfile;
-	String songname;
+	File SongFile;
+	String PathtoSong;
+	String SongName;
 	FileInputStream in;
 	RandomAccessFile in2;
 	//byte[] byteData = null; 
@@ -29,17 +30,18 @@ public class PlayStream {
 		//Dummby Constructor
 		playing=false;
 		CenterFilter=false;
-		songname="unintialized";
+		SongName="unintialized";
 	}
-	public PlayStream(String FileName){
-		songname=FileName;
+	public PlayStream(String FullPath, String Sname){
 		AudioInputBuffer = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT, 44100, AudioTrack.MODE_STREAM);
-		songfile=new File(FileName);
+		SongFile=new File(FullPath);
+		PathtoSong=FullPath;
+		SongName=Sname;
 		CenterFilter=false;
 		playing=false;
 		if(in!=null){in=null;}
 		try {
-			in=new FileInputStream(songfile);
+			in=new FileInputStream(SongFile);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,7 +54,6 @@ public class PlayStream {
 		},"AudioPlayer Thread");
 		
 		System.out.println("PlayStream Init Success!");
-		
 	}
 
 	
@@ -62,7 +63,7 @@ public class PlayStream {
 				try {
 					int retval=in.read(Buffer);
 					if(retval==-1){
-						Stop();
+						AudioSystem.StopSong();
 					}	
 				} catch (Exception E){
 					E.printStackTrace();
@@ -121,13 +122,15 @@ public class PlayStream {
 
 	public void Stop(){
 		try {
+			AudioInputBuffer.flush();
 			AudioInputBuffer.pause();
 			AudioInputBuffer.flush();
+			playing=false;
+			//playingThread=null;
 			in.close();
 			in=null;
-			in=new FileInputStream(songfile);
-			playing=false;
-			playingThread=null;
+			in=new FileInputStream(SongFile);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -143,7 +146,7 @@ public class PlayStream {
 			AudioInputBuffer.flush();
 			AudioInputBuffer.release();
 			in=null;
-			songfile=null;
+			SongFile=null;
 			Buffer=null;
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -15,19 +15,20 @@ public class Tools {
 
 	private static final int RECORDER_BPP = 16;
 	private static final int RECORDER_SAMPLERATE = 44100;
-	private static final String AUDIO_RECORDER_FOLDER = "Tractrix-Lite";
-	private static final String AUDIO_RECORDER_FILE_EXT_WAV = ".wav";
+	public static final String APP_FOLDER = "Tracktrix-Lite";
+	public static final String AUDIO_FILE_EXT_WAV = ".wav";
 	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
+	public static String StoragePath=android.os.Environment.getExternalStorageDirectory()+"/"+APP_FOLDER+"/";
 
-	private static ByteArrayOutputStream FillGap(String RecFileName, long difference, long RecFileLength) throws Exception{
+	private static ByteArrayOutputStream FillGap(String PathtoRecFile, long difference, long RecFileLength) throws Exception{
 		ByteArrayOutputStream out= new ByteArrayOutputStream();
-		FileInputStream rec= new FileInputStream(RecFileName);
+		FileInputStream rec= new FileInputStream(PathtoRecFile);
 		byte[] inputdata = new byte[(int)RecFileLength];
 		rec.read(inputdata);//input data should now hold entire recording
 		rec.close();//close input stream
 		out.write(inputdata);
-		deleteTempFile(RecFileName);
+		deleteFile(PathtoRecFile);
 		inputdata=null;
 		byte[] emptygaparray= new byte[(int) difference];
 		out.write(emptygaparray); // the output now holds the song
@@ -35,16 +36,17 @@ public class Tools {
 		emptygaparray=null;
 		return out;
 	}
-	public static void RenderAudio(String SongFileName, String RecFileName){
-		File SongFile=new File(SongFileName);
-		File RecFile= new File(RecFileName);
+	
+	public static void RenderAudio(String PathtoSong, String PathtoRec, String SongName){
+		File SongFile=new File(PathtoSong);
+		File RecFile= new File(PathtoRec);
 		long sizeofSong=SongFile.length()-44; // Size of song minus the 44 kb Header
 		long sizeofRec=RecFile.length();
 		assert(sizeofSong>sizeofRec);// make sure the recording is smaller
 		long difference=sizeofSong-sizeofRec;
 		try {			
-			byte[] recordingbytes=FillGap(RecFileName,difference,sizeofRec).toByteArray();
-			FileInputStream songinput= new FileInputStream(SongFileName);
+			byte[] recordingbytes=FillGap(PathtoRec,difference,sizeofRec).toByteArray();
+			FileInputStream songinput= new FileInputStream(PathtoSong);
 			byte[] songbytes = new byte[(int)sizeofSong];
 			songinput.read(songbytes);
 			songinput.close();
@@ -55,16 +57,16 @@ public class Tools {
 				songbytes[i+2]=(byte) ((((int)songbytes[i+2])/2) +((int)recordingbytes[i+2]));
 				songbytes[i+3]=(byte) ((((int)songbytes[i+3])/2) +((int)recordingbytes[i+3]));
 			}
-			FileOutputStream out= new FileOutputStream(SongFileName+"-f");
+			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-f"));
 			out.write(songbytes);
 			out.close();
-			copyWaveFile(SongFileName+"-f",SongFileName+"-rec",AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
-			deleteTempFile(SongFileName+"-f");
+			copyWaveFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV,Tools.getFilename(SongName, "-final"),AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
+			deleteFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Could not Fill Gap");
 		}
-			}
+	}
 
 
 
@@ -159,24 +161,24 @@ public class Tools {
 	}
 
 
-	public static String getTempFilename(String AUDIO_RECORDER_TEMP_FILE){
+	public static String getFilename(String FileName, String Tag){
 		String filepath = Environment.getExternalStorageDirectory().getPath();
-		File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+		File file = new File(filepath,APP_FOLDER);
 
 		if(!file.exists()){
 			file.mkdirs();
 		}
 
-		File tempFile = new File(filepath,AUDIO_RECORDER_TEMP_FILE);
+		File tempFile = new File(filepath,FileName+Tag+AUDIO_FILE_EXT_WAV);
 
 		if(tempFile.exists())
 			tempFile.delete();
 
-		return (file.getAbsolutePath() + "/" + AUDIO_RECORDER_TEMP_FILE);
+		return (file.getAbsolutePath() + "/" + FileName+Tag+AUDIO_FILE_EXT_WAV);
 	}
 
-	private static void deleteTempFile(String AUDIO_RECORDER_TEMP_FILE) {
-		File file = new File(getTempFilename(AUDIO_RECORDER_TEMP_FILE));
+	private static void deleteFile(String Path) {
+		File file = new File(Path);
 		file.delete();
 	}
 
@@ -198,15 +200,24 @@ public class Tools {
 		return incomingBuffer;
 	}
 
-		public static String getFilename(String AUDIO_RECORDER_TEMP_FILE){
-			String filepath = Environment.getExternalStorageDirectory().getPath();
-			File file = new File(filepath,AUDIO_RECORDER_FOLDER);
-	
-			if(!file.exists()){
-				file.mkdirs();
-			}
-	
-			return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
+//	public static String getFilename(String SongName, String Tag){
+//		String filepath = Environment.getExternalStorageDirectory().getPath();
+//		File file = new File(filepath,APP_FOLDER);
+//
+//		if(!file.exists()){
+//			file.mkdirs();
+//		}
+//
+//		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
+//	}
+
+	public static void createAppDirectory(){
+		String filepath = Environment.getExternalStorageDirectory().getPath();
+		File file = new File(filepath,APP_FOLDER);
+
+		if(!file.exists()){
+			file.mkdirs();
 		}
+	}
 }
 
