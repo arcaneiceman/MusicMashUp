@@ -24,30 +24,45 @@ public class AudioSystem {
 		String FileName=file.getName();
 		if(FileName.endsWith(".mp3")|| FileName.endsWith(".MP3")){
 			//This song DOES end with mp3 so can process it! 
-
+			
 			int pos = FileName.lastIndexOf(".");// since it either ends with .mp3 or .MP3 it HAS to contain a "."
 			String SongName= FileName.substring(0, pos);   // got SongName;
 			String PathtoOutput=Tools.StoragePath+SongName+"-play"+Tools.AUDIO_FILE_EXT_WAV;
 
-			Converter ConModule= new Converter();
-			System.out.println("Starting Conversion");
-			try {
-				ConModule.convert(PathtoSong,PathtoOutput);
-			} catch (JavaLayerException e) {
-				System.out.println("Failed to Convert Song to WAV");
-				e.printStackTrace();
-				return false;
+			File prev=new File(PathtoOutput);
+			if(prev.exists()){
+				//The wav file for this already exists so no need to convert;
+				System.out.println("Song Wav exists!");
+				if(currentsongplayer!=null){
+					currentsongplayer=null;
+				}
+				currentsongplayer = new PlayStream(PathtoOutput,SongName);
+				songloaded=true;
+				return true;
 			}
-			System.out.println("Done with Conversion");
+			else{
+				//file will need to be converted
+				Converter ConModule= new Converter();
+				System.out.println("Starting Conversion");
+				try {
+					ConModule.convert(PathtoSong,PathtoOutput);
+				} catch (JavaLayerException e) {
+					System.out.println("Failed to Convert Song to WAV");
+					e.printStackTrace();
+					return false;
+				}
+				System.out.println("Done with Conversion");
 
-			if(currentsongplayer!=null){
-				currentsongplayer=null;
+				if(currentsongplayer!=null){
+					currentsongplayer=null;
+				}
+				currentsongplayer = new PlayStream(PathtoOutput,SongName);
+				songloaded=true;
+				System.out.println("Successfully Loaded Song");
+				return true;
 			}
-			currentsongplayer = new PlayStream(PathtoOutput,SongName);
-			songloaded=true;
-
-			System.out.println("Successfully Loaded Song");
-			return true;
+			
+			
 		}
 		else{
 			//this song does not end with mp3 or has no extension.
