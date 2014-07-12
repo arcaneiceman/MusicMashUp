@@ -24,7 +24,7 @@ public class AudioSystem {
 		String FileName=file.getName();
 		if(FileName.endsWith(".mp3")|| FileName.endsWith(".MP3")){
 			//This song DOES end with mp3 so can process it! 
-			
+
 			int pos = FileName.lastIndexOf(".");// since it either ends with .mp3 or .MP3 it HAS to contain a "."
 			String SongName= FileName.substring(0, pos);   // got SongName;
 			String PathtoOutput=Tools.StoragePath+SongName+"-play"+Tools.AUDIO_FILE_EXT_WAV;
@@ -61,15 +61,15 @@ public class AudioSystem {
 				System.out.println("Successfully Loaded Song");
 				return true;
 			}
-			
-			
+
+
 		}
 		else{
 			//this song does not end with mp3 or has no extension.
 			// call a  bad format error
 			return false;
-		}
-	}
+		}}
+
 
 	public static void PlaySong(){
 		currentsongplayer.Play();

@@ -3,12 +3,13 @@ package com.tracktrixlite;
 import com.example.tracktrixlite.R;
 
 import android.support.v7.app.ActionBarActivity;
-import android.app.ProgressDialog;
-import android.media.MediaMetadataRetriever;
+
 import android.os.Bundle;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,7 +29,6 @@ public class MainActivity extends ActionBarActivity {
 	Button playBtn;
 	Button stopBtn;
 	Button recordBtn;
-	ProgressDialog conversionprogress;
 	
 	
 	public void LoadUIVariables(){
@@ -44,7 +44,6 @@ public class MainActivity extends ActionBarActivity {
 		saveBtn= (Button) findViewById(R.id.save_button);
 		stopBtn=(Button) findViewById(R.id.stop_button);
 		recordBtn= (Button) findViewById(R.id.record_button);
-		conversionprogress = new ProgressDialog(this);
 	}
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -141,20 +140,15 @@ public class MainActivity extends ActionBarActivity {
 		
 		String path= android.os.Environment.getExternalStorageDirectory()+ "/Music/All.mp3";
 		System.out.println("Path is : " + path);
-		
-		boolean successfull=AudioSystem.LoadSong(path);
-	
-		if(successfull){
+		if(AudioSystem.LoadSong(path)){
 			System.out.println("Successful Load");
 			AudioSystem.PlaySong();
 			
 			//set UI Variables
 			playBtn.setBackgroundResource(R.drawable.pause_icon);
-			MediaMetadataRetriever fetchmetadata= new MediaMetadataRetriever();
-			fetchmetadata.setDataSource(path);
-			SongNameField.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-			SongAlbumName.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
-			SongArtist.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
+			SongNameField.setText("All in All");
+			SongAlbumName.setText("No Name Face");
+			SongArtist.setText("LifeHouse");
 			playBtn.setEnabled(true);
 			LyricsButton.setEnabled(true);
 			Filter0.setEnabled(true);
@@ -202,7 +196,6 @@ public class MainActivity extends ActionBarActivity {
 			Filter0.setEnabled(false);
 			Filter1.setEnabled(false);
 			restartBtn.setEnabled(true);
-			renderBtn.setEnabled(true);
 		}
 		
 	}
@@ -218,13 +211,11 @@ public class MainActivity extends ActionBarActivity {
 		if(AudioSystem.songloaded==false){
 			return;
 		}
-		Tools.RenderAudio(Tools.StoragePath+AudioSystem.currentsongplayer.SongName+"-play"+Tools.AUDIO_FILE_EXT_WAV,Tools.StoragePath+AudioSystem.currentsongplayer.SongName+"-t"+Tools.AUDIO_FILE_EXT_WAV,AudioSystem.currentsongplayer.SongName);
+		//Tools.RenderAudio(AudioSystem.currentsongplayer.songname, AudioSystem.currentsongplayer.songname+"-f");
 	}
 	
-	public void restartbutton_pressed(View view){
-		if(AudioSystem.songloaded==false){
-			return;
-		}
+	public void systemexit_pressed(View view){
+		System.exit(0);
 	}
 	
 	public void deactivate_filter(View view){

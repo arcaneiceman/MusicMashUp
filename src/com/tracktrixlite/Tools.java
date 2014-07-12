@@ -56,10 +56,6 @@ public class Tools {
 				songbytes[i+1]=(byte) ((((int)songbytes[i+1])/2) +((int)recordingbytes[i+1]));
 				songbytes[i+2]=(byte) ((((int)songbytes[i+2])/2) +((int)recordingbytes[i+2]));
 				songbytes[i+3]=(byte) ((((int)songbytes[i+3])/2) +((int)recordingbytes[i+3]));
-				/*
-				 * CHANG THE ABOVE TO by i+2 to i and i+3 to i + 1  for recording bytes to use mono to layer 
-				 * a stero track!!!!!!!
-				 */
 			}
 			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-f"));
 			out.write(songbytes);
@@ -68,7 +64,7 @@ public class Tools {
 			deleteFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("Could not Render!");
+			System.err.println("Could not Fill Gap");
 		}
 	}
 
@@ -204,6 +200,16 @@ public class Tools {
 		return incomingBuffer;
 	}
 
+//	public static String getFilename(String SongName, String Tag){
+//		String filepath = Environment.getExternalStorageDirectory().getPath();
+//		File file = new File(filepath,APP_FOLDER);
+//
+//		if(!file.exists()){
+//			file.mkdirs();
+//		}
+//
+//		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
+//	}
 
 	public static void createAppDirectory(){
 		String filepath = Environment.getExternalStorageDirectory().getPath();

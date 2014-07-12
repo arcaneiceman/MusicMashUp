@@ -35,13 +35,23 @@
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <!-- Playlist button -->
+       
+<Button
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@null"
+            android:drawableTop="@drawable/exit_icon"
+            android:text="Exit"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:onClick="systemexit_pressed" />
 		<Button
             android:id="@+id/reset_button"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:background="@null"
-            android:drawableTop="@drawable/openmusicfile"
+            android:drawableTop="@drawable/reset_icon"
             android:text="Reset"
             android:textColor="#ffffff"
             android:textSize="10dp"
@@ -168,6 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true"
+                android:drawableTop="@drawable/return_icon"
                 android:text="Restart"
                 android:textColor="#ffffff"
                 android:textSize="16dp"
