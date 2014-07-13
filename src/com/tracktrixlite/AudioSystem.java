@@ -18,6 +18,7 @@ public class AudioSystem {
 	public static boolean songloaded=false;
 	public static boolean recording=false;
 
+
 	public static boolean LoadSong(String PathtoSong){
 		System.out.println("Loading "+ PathtoSong);
 		File file=new File(PathtoSong);
@@ -29,47 +30,56 @@ public class AudioSystem {
 			String SongName= FileName.substring(0, pos);   // got SongName;
 			String PathtoOutput=Tools.StoragePath+SongName+"-play"+Tools.AUDIO_FILE_EXT_WAV;
 
-			File prev=new File(PathtoOutput);
-			if(prev.exists()){
-				//The wav file for this already exists so no need to convert;
-				System.out.println("Song Wav exists!");
-				if(currentsongplayer!=null){
-					currentsongplayer=null;
-				}
-				currentsongplayer = new PlayStream(PathtoOutput,SongName);
-				songloaded=true;
-				return true;
+			if(Tools.slowmode){
+				return SlowLoad(PathtoSong,PathtoOutput,SongName);
 			}
 			else{
-				//file will need to be converted
-				Converter ConModule= new Converter();
-				System.out.println("Starting Conversion");
-				try {
-					ConModule.convert(PathtoSong,PathtoOutput);
-				} catch (JavaLayerException e) {
-					System.out.println("Failed to Convert Song to WAV");
-					e.printStackTrace();
-					return false;
-				}
-				System.out.println("Done with Conversion");
-
-				if(currentsongplayer!=null){
-					currentsongplayer=null;
-				}
-				currentsongplayer = new PlayStream(PathtoOutput,SongName);
-				songloaded=true;
-				System.out.println("Successfully Loaded Song");
-				return true;
+				return FastLoad(PathtoSong,SongName);
 			}
-
-
 		}
 		else{
 			//this song does not end with mp3 or has no extension.
-			// call a  bad format error
 			return false;
-		}}
+		}
+	}
 
+	private static boolean FastLoad(String PathtoSong,String SongName){
+		if(currentsongplayer!=null){
+			currentsongplayer=null;
+		}
+		currentsongplayer = new FastPlayStream(PathtoSong,SongName);
+		System.out.println("Successfully Loaded Song in Fast Mode");
+		return true;
+	}
+
+	private static boolean SlowLoad(String PathtoSong,String PathtoOutput,String SongName){
+		File prev=new File(PathtoOutput);
+		if(prev.exists()){
+			//The wav file for this already exists so no need to convert;
+			System.out.println("Song Wav exists!");
+		}
+		else{
+			//file will need to be converted
+			Converter ConModule= new Converter();
+			System.out.println("Starting Conversion");
+			try {
+				ConModule.convert(PathtoSong,PathtoOutput);
+			} catch (JavaLayerException e) {
+				System.out.println("Failed to Convert Song to WAV");
+				e.printStackTrace();
+				return false;
+			}
+			System.out.println("Done with Conversion");
+
+		}
+		if(currentsongplayer!=null){
+			currentsongplayer=null;
+		}
+		currentsongplayer = new SlowPlayStream(PathtoOutput,SongName);
+		songloaded=true;
+		System.out.println("Successfully Loaded Song in Slow Mode");
+		return true;
+	}
 
 	public static void PlaySong(){
 		currentsongplayer.Play();
@@ -97,7 +107,7 @@ public class AudioSystem {
 			System.out.println("There is no song to start recording with");
 			return;
 		}
-		micstream=new RecorderStream(currentsongplayer.SongName);
+		micstream=new RecorderStream(currentsongplayer.getSongName());
 		StopSong();
 		PlaySong();
 		micstream.startRecording();

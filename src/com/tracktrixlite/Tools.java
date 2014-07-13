@@ -1,10 +1,13 @@
 package com.tracktrixlite;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import android.media.AudioFormat;
@@ -13,6 +16,8 @@ import android.os.Environment;
 
 public class Tools {
 
+	
+	//ALL STATIC Variables
 	private static final int RECORDER_BPP = 16;
 	private static final int RECORDER_SAMPLERATE = 44100;
 	public static final String APP_FOLDER = "Tracktrix-Lite";
@@ -20,7 +25,9 @@ public class Tools {
 	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 	public static String StoragePath=android.os.Environment.getExternalStorageDirectory()+"/"+APP_FOLDER+"/";
+	public static boolean slowmode=true;
 
+	
 	private static ByteArrayOutputStream FillGap(String PathtoRecFile, long difference, long RecFileLength) throws Exception{
 		ByteArrayOutputStream out= new ByteArrayOutputStream();
 		FileInputStream rec= new FileInputStream(PathtoRecFile);
@@ -211,6 +218,66 @@ public class Tools {
 //		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
 //	}
 
+	public static void loadSettings(){
+		System.out.println("in Load Settings");
+		String filepath = Environment.getExternalStorageDirectory().getPath();
+		File file = new File(filepath,APP_FOLDER);
+
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		File tempFile = new File(StoragePath,"Settings.txt");
+		//it should exist!!
+		if(!tempFile.exists()){
+			System.err.println("Something went wrong");
+		}
+		else{
+			//it exists so:
+			System.out.println("File Found");
+			try {
+				BufferedReader R = new BufferedReader(new FileReader(tempFile));
+				String mode=R.readLine();
+				System.out.println("Read line : " + mode);
+				System.out.println("File Found");
+				if(mode.contains("slow")){
+					Tools.slowmode=true;
+					System.out.println("In slow Mode");
+				}
+				else if(mode.contains("fast")){
+					Tools.slowmode=false;
+					System.out.println("In Fast Mode");
+				}
+				R.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void createSettingsfile(){
+		System.out.println("Here");
+		String filepath = Environment.getExternalStorageDirectory().getPath();
+		File file = new File(filepath,APP_FOLDER);
+
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		
+		File tempFile = new File(StoragePath,"Settings.txt");
+		if(!tempFile.exists()){//if file does not exist, create a new one
+			System.out.println("File did not exit");
+			try {
+				tempFile.createNewFile();
+				FileWriter FW= new FileWriter(tempFile);
+				FW.write("mode=slow\n");
+				FW.flush();
+			    FW.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("File Existed!");
+	}
 	public static void createAppDirectory(){
 		String filepath = Environment.getExternalStorageDirectory().getPath();
 		File file = new File(filepath,APP_FOLDER);

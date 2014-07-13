@@ -3,13 +3,12 @@ package com.tracktrixlite;
 import com.example.tracktrixlite.R;
 
 import android.support.v7.app.ActionBarActivity;
-
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,8 +28,9 @@ public class MainActivity extends ActionBarActivity {
 	Button playBtn;
 	Button stopBtn;
 	Button recordBtn;
-	
-	
+	ProgressDialog dialog;
+
+
 	public void LoadUIVariables(){
 		SongNameField = (TextView) findViewById(R.id.SongTitle);
 		SongAlbumName = (TextView) findViewById(R.id.AlbumName);
@@ -45,17 +45,19 @@ public class MainActivity extends ActionBarActivity {
 		stopBtn=(Button) findViewById(R.id.stop_button);
 		recordBtn= (Button) findViewById(R.id.record_button);
 	}
-	
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		LoadUIVariables();
 		ResetUI();
 		Tools.createAppDirectory();
+		Tools.createSettingsfile();//if setting file is not created, create it
+		Tools.loadSettings();
 	}
 
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -91,14 +93,14 @@ public class MainActivity extends ActionBarActivity {
 		SongAlbumName.setText("N/A");
 		SongArtist.setText("N/A");
 	}
-	
+
 	public void play_pause_button_pressed(View view){
 		System.out.println("Play/Pause Button Pressed");
 		if(AudioSystem.songloaded==false){
 			return;
 		}
-		
-		if(AudioSystem.currentsongplayer.playing){
+
+		if(AudioSystem.currentsongplayer.getPlaying()){
 			//if already playing
 			AudioSystem.PauseSong();
 			playBtn.setBackgroundResource(R.drawable.play_icon);
@@ -123,7 +125,7 @@ public class MainActivity extends ActionBarActivity {
 			return;
 		}
 		AudioSystem.StopSong();// Actual Code
-		
+
 		//UI Effects Area 
 		Filter0.setEnabled(false);
 		Filter1.setEnabled(false);
@@ -131,38 +133,38 @@ public class MainActivity extends ActionBarActivity {
 		playBtn.setBackgroundResource(R.drawable.play_icon);
 		System.out.println("Stop Button Pressed");
 	}
-	
+
 	public void openfile_pressed(View view){
 		//HARD CODED TO OPEN ONE FILE RIGHT NOW
 		if(AudioSystem.songloaded==true){
 			AudioSystem.SystemReset();
 		}
-		
+
 		String path= android.os.Environment.getExternalStorageDirectory()+ "/Music/All.mp3";
 		System.out.println("Path is : " + path);
-		if(AudioSystem.LoadSong(path)){
-			System.out.println("Successful Load");
-			AudioSystem.PlaySong();
-			
-			//set UI Variables
-			playBtn.setBackgroundResource(R.drawable.pause_icon);
-			SongNameField.setText("All in All");
-			SongAlbumName.setText("No Name Face");
-			SongArtist.setText("LifeHouse");
-			playBtn.setEnabled(true);
-			LyricsButton.setEnabled(true);
-			Filter0.setEnabled(true);
-			Filter1.setEnabled(true);
-			stopBtn.setEnabled(true);
-			recordBtn.setEnabled(true);
-		}
-		else{
-			System.out.println("Could not Open this Song : Song Format Unsupported");
-		}
-		
-		
+
+		 boolean success=AudioSystem.LoadSong(path);
+		 if(success){
+				System.out.println("Successful Load");
+				AudioSystem.PlaySong();
+
+				//set UI Variables
+				playBtn.setBackgroundResource(R.drawable.pause_icon);
+				SongNameField.setText("All in All");
+				SongAlbumName.setText("No Name Face");
+				SongArtist.setText("LifeHouse");
+				playBtn.setEnabled(true);
+				LyricsButton.setEnabled(true);
+				Filter0.setEnabled(true);
+				Filter1.setEnabled(true);
+				stopBtn.setEnabled(true);
+				recordBtn.setEnabled(true);
+			}
+			else{
+				System.out.println("Could not Open this Song : Song Format Unsupported");
+			}
 	}
-	
+
 	public void resetbutton_pressed(View view){
 		if(AudioSystem.songloaded==false){
 			return;
@@ -175,13 +177,13 @@ public class MainActivity extends ActionBarActivity {
 		if(AudioSystem.songloaded==false){
 			return;
 		}
-		
+
 		if(AudioSystem.recording==false){
 			//not recording already so start:
 			playBtn.setEnabled(false);
 			stopBtn.setEnabled(false);
 			recordBtn.setText("Stop Rec");
-			if(AudioSystem.currentsongplayer.playing==false){
+			if(AudioSystem.currentsongplayer.getPlaying()==false){
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
 			}
 			//Actual Stuff
@@ -197,37 +199,39 @@ public class MainActivity extends ActionBarActivity {
 			Filter1.setEnabled(false);
 			restartBtn.setEnabled(true);
 		}
-		
+
 	}
-	
+
 	public void lyricsbutton_pressed(View view){
 		if(AudioSystem.songloaded==false){
 			return;
 		}
 		System.out.println("Lyrics Button Pressed");
 	}
-	
+
 	public void renderbutton_pressed(View view){
 		if(AudioSystem.songloaded==false){
 			return;
 		}
 		//Tools.RenderAudio(AudioSystem.currentsongplayer.songname, AudioSystem.currentsongplayer.songname+"-f");
 	}
-	
+
 	public void systemexit_pressed(View view){
 		System.exit(0);
 	}
-	
+
 	public void deactivate_filter(View view){
 		System.out.println("Deacticate Filter button pressed");
 		//assuming its safe
-		AudioSystem.currentsongplayer.CenterFilter=false;
+		AudioSystem.currentsongplayer.setFilterStatus(false);;
 	}
 
 	public void activate_filter(View view){
 		System.out.println("Activate Filter button pressed");
 		//assuming its safe
-		AudioSystem.currentsongplayer.CenterFilter=true;
+		AudioSystem.currentsongplayer.setFilterStatus(true);
 	}
+
+
 
 }
