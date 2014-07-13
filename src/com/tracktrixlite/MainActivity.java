@@ -142,27 +142,12 @@ public class MainActivity extends ActionBarActivity {
 
 		String path= android.os.Environment.getExternalStorageDirectory()+ "/Music/All.mp3";
 		System.out.println("Path is : " + path);
+		dialog = ProgressDialog.show(MainActivity.this, "Please wait", "Decoding Song This may take a few minutes ...", true);
+		dialog.setCancelable(false);
 
-		 boolean success=AudioSystem.LoadSong(path);
-		 if(success){
-				System.out.println("Successful Load");
-				AudioSystem.PlaySong();
-
-				//set UI Variables
-				playBtn.setBackgroundResource(R.drawable.pause_icon);
-				SongNameField.setText("All in All");
-				SongAlbumName.setText("No Name Face");
-				SongArtist.setText("LifeHouse");
-				playBtn.setEnabled(true);
-				LyricsButton.setEnabled(true);
-				Filter0.setEnabled(true);
-				Filter1.setEnabled(true);
-				stopBtn.setEnabled(true);
-				recordBtn.setEnabled(true);
-			}
-			else{
-				System.out.println("Could not Open this Song : Song Format Unsupported");
-			}
+		ConversionThread T= new ConversionThread(path);
+		T.start();
+		 
 	}
 
 	public void resetbutton_pressed(View view){
@@ -233,5 +218,41 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 
+	public class ConversionThread extends Thread{
+
+		public boolean success;
+		public String Path;
+
+		public ConversionThread(String path){
+			success=false;
+			Path=path;
+			//Thread priority high;
+		}
+		
+		public void run(){
+			success=AudioSystem.LoadSong(Path);
+			dialog.dismiss();
+			if(success){
+				System.out.println("Successful Load");
+				AudioSystem.PlaySong();
+
+				//set UI Variables
+				playBtn.setBackgroundResource(R.drawable.pause_icon);
+				SongNameField.setText("All in All");
+				SongAlbumName.setText("No Name Face");
+				SongArtist.setText("LifeHouse");
+				playBtn.setEnabled(true);
+				LyricsButton.setEnabled(true);
+				Filter0.setEnabled(true);
+				Filter1.setEnabled(true);
+				stopBtn.setEnabled(true);
+				recordBtn.setEnabled(true);
+			}
+			else{
+				System.out.println("Could not Open this Song : Song Format Unsupported");
+			}
+		}
+
+	}
 
 }
