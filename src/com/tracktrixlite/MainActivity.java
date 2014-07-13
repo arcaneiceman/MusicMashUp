@@ -4,6 +4,7 @@ import com.example.tracktrixlite.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
+import android.media.MediaMetadataRetriever;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
 	Button stopBtn;
 	Button recordBtn;
 	ProgressDialog dialog;
+	MediaMetadataRetriever fetchmetadata;
 
 
 	public void LoadUIVariables(){
@@ -142,12 +144,11 @@ public class MainActivity extends ActionBarActivity {
 
 		String path= android.os.Environment.getExternalStorageDirectory()+ "/Music/All.mp3";
 		System.out.println("Path is : " + path);
-		dialog = ProgressDialog.show(MainActivity.this, "Please wait", "Decoding Song This may take a few minutes ...", true);
-		dialog.setCancelable(false);
 
-		ConversionThread T= new ConversionThread(path);
-		T.start();
-		 
+		fetchmetadata= new MediaMetadataRetriever();
+		fetchmetadata.setDataSource(path);
+		new ConversionThread().execute(path);
+
 	}
 
 	public void resetbutton_pressed(View view){
@@ -218,19 +219,31 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 
-	public class ConversionThread extends Thread{
+	public class ConversionThread extends  AsyncTask<String, String, String>{
 
 		public boolean success;
 		public String Path;
 
-		public ConversionThread(String path){
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			dialog=ProgressDialog.show(MainActivity.this, "", "Loading... This may take a few minutes");
+			dialog.setCancelable(true);
 			success=false;
-			Path=path;
-			//Thread priority high;
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			success=AudioSystem.LoadSong(params[0]);
+			System.out.println("returning");
+			return null;
 		}
 		
-		public void run(){
-			success=AudioSystem.LoadSong(Path);
+		@Override
+		protected void onPostExecute(String s) {
+			System.out.println("Post");
 			dialog.dismiss();
 			if(success){
 				System.out.println("Successful Load");
@@ -238,9 +251,11 @@ public class MainActivity extends ActionBarActivity {
 
 				//set UI Variables
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
-				SongNameField.setText("All in All");
-				SongAlbumName.setText("No Name Face");
-				SongArtist.setText("LifeHouse");
+
+				SongNameField.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+				SongAlbumName.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
+				SongArtist.setText(fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
+
 				playBtn.setEnabled(true);
 				LyricsButton.setEnabled(true);
 				Filter0.setEnabled(true);
@@ -251,6 +266,7 @@ public class MainActivity extends ActionBarActivity {
 			else{
 				System.out.println("Could not Open this Song : Song Format Unsupported");
 			}
+
 		}
 
 	}

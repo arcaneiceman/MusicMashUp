@@ -72,6 +72,7 @@ public class AudioSystem {
 			System.out.println("Done with Conversion");
 
 		}
+		
 		if(currentsongplayer!=null){
 			currentsongplayer=null;
 		}
