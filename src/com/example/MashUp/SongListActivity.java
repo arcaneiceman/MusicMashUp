@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.MashUp.MainActivity;
+import com.MashUp.Tools;
 import com.example.MashUp.R;
 
 import android.net.Uri;
@@ -37,7 +38,7 @@ public class SongListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_song_list);
 		songView = (ListView) findViewById(R.id.song_list);
-		int id = getResources().getIdentifier(MainActivity.Background,
+		int id = getResources().getIdentifier(Tools.Background,
 				"drawable", getPackageName());
 		((RelativeLayout) findViewById(R.id.screen_song_list))
 				.setBackground(getResources().getDrawable(id));

@@ -26,6 +26,7 @@ import android.widget.GridLayout;
 import java.util.List;
 
 import com.MashUp.MainActivity;
+import com.MashUp.Tools;
 import com.example.MashUp.R;
 
 /**
@@ -39,6 +40,7 @@ import com.example.MashUp.R;
  * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
  * API Guide</a> for more information on developing a Settings UI.
  */
+
 
 
 
@@ -87,17 +89,20 @@ public class SettingsActivity extends PreferenceActivity implements
 			ListPreference editTextPref = (ListPreference) p;
 			if (editTextPref.getKey().equals("renderMode")) {
 				if (editTextPref.getValue().equals("1")) {
-					MainActivity.isSlow = true;
+					Tools.slowmode=true;
+					System.out.println("is Slow set");
 				} else {
-					MainActivity.isSlow = false;
+					Tools.slowmode=false;
+					System.out.println("is Fast set");
 				}
 			} else if (editTextPref.getKey().equals("backgroundTheme")) {
-				MainActivity.Background = editTextPref.getValue();
-				int id = getResources().getIdentifier(MainActivity.Background, "drawable", getPackageName());
+				Tools.Background = editTextPref.getValue();
+				int id = getResources().getIdentifier(Tools.Background, "drawable", getPackageName());
 				
 //				((GridLayout) findViewById(R.id.screen)).setBackground(getResources().getDrawable(id));
 //				((GridLayout) findViewById(R.id.screen_song_list)).setBackground(getResources().getDrawable(id));
 			}
+			Tools.updateSettingsFile(Tools.slowmode, Tools.Background);
 		}
 	}
 
@@ -116,13 +121,13 @@ public class SettingsActivity extends PreferenceActivity implements
 		if (p instanceof ListPreference) {
 			ListPreference editTextPref = (ListPreference) p;
 			if (editTextPref.getKey().equals("renderMode")) {
-				if (MainActivity.isSlow) {
+				if (Tools.slowmode) {
 					editTextPref.setValue("1");
 				} else {
 					editTextPref.setValue("2");
 				}
 			} else if (editTextPref.getKey().equals("backgroundTheme")) {
-				editTextPref.setValue(MainActivity.Background);
+				editTextPref.setValue(Tools.Background);
 			}
 		}
 	}

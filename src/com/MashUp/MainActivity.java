@@ -42,10 +42,8 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
-	static public boolean isSlow = false;
 	static public Song currSong;
 	static public boolean noFilter = true;
-	static public String Background = "bg_three";
 	private PopupWindow pw;
 	static public String NowSong="None";
 
@@ -93,13 +91,12 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	protected void onCreate(Bundle savedInstanceState) {
-		System.out.println("on create called");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		((SeekBar) findViewById(R.id.seekBar1)).setEnabled(false);
 		((BitmapDrawable) ((GridLayout) findViewById(R.id.screen))
 				.getBackground()).toString();
-		int id = getResources().getIdentifier(MainActivity.Background,
+		int id = getResources().getIdentifier(Tools.Background,
 				"drawable", getPackageName());
 		((GridLayout) findViewById(R.id.screen)).setBackground(getResources()
 				.getDrawable(id));
@@ -159,13 +156,13 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		int id = getResources().getIdentifier(MainActivity.Background,
+		int id = getResources().getIdentifier(Tools.Background,
 				"drawable", getPackageName());
 		((GridLayout) findViewById(R.id.screen)).setBackground(getResources()
 				.getDrawable(id));
 		actionBar.setBackgroundDrawable(getResources().getDrawable(id));
 		invalidateOptionsMenu();
-		System.out.println("On Resume Called");
+		//System.out.println("On Resume Called");
 		if(currSong!=null){
 			if(!currSong.getPath().equals(NowSong)){
 				//if curr song NOT the same as the song played right now... even if its un initualized...
@@ -501,6 +498,7 @@ public class MainActivity extends ActionBarActivity {
 					ResetUI();
 					System.out.println("System Reset! Now I would have started like we just started with the new song");
 //					//Call new song! 
+					//openfile_pressed()
 				}
 				else{
 					//Answer From Render was Null
@@ -544,7 +542,7 @@ public class MainActivity extends ActionBarActivity {
 			super.onPreExecute();
 			dialog = ProgressDialog.show(MainActivity.this, "",
 					"Loading... This may take a few minutes");
-			dialog.setCancelable(true);
+			dialog.setCancelable(false);
 			success = false;
 		}
 

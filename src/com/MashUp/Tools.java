@@ -1,6 +1,7 @@
 package com.MashUp;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,6 +36,7 @@ public class Tools {
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 	public static String StoragePath=android.os.Environment.getExternalStorageDirectory()+"/"+APP_FOLDER+"/";
 	public static boolean slowmode=false;
+	public static String Background="bg_three";
 
 
 	private static ByteArrayOutputStream FillGap(String PathtoRecFile, long difference, long RecFileLength) throws Exception{
@@ -81,7 +83,7 @@ public class Tools {
 				//Failed to convert
 				return null;
 			}
-			
+
 			File SongFile=new File(FilteredSong);
 			File RecFile= new File(PathtoRec);
 			long sizeofsong=SongFile.length()/2;
@@ -127,39 +129,47 @@ public class Tools {
 
 
 	private static String RenderWav(String PathtoSong,String PathtoRec, String SongName){
-		File SongFile=new File(PathtoSong);
-		File RecFile= new File(PathtoRec);
-		long sizeofSong=SongFile.length()-44; // Size of song minus the 44 byte Header
-		sizeofSong=sizeofSong/2; //This would have been the lenght if the song was in mono
-		long sizeofRec=RecFile.length();
-		assert(sizeofSong>sizeofRec);// make sure the recording is smaller
-		long difference=sizeofSong-sizeofRec; //the differnce in length of a mono song vs mono recording
-		try {			
-			byte[] recordingbytes=FillGap(PathtoRec,difference,sizeofRec).toByteArray();
-			FileInputStream songinput= new FileInputStream(PathtoSong);
-			byte[] songbytes = new byte[(int)sizeofSong];
-			songinput.read(songbytes,44,(int)sizeofSong);//read after 44 bytes
-			songinput.close();
-			songbytes=CenterChannelFilter(songbytes);//filter the song
-			System.out.println("Lenght of the Song is : " + (songbytes.length-44) + " Half of this should be " + (songbytes.length-44)/2);
-			System.out.println("Lenght of the Recording is : " + recordingbytes.length + " (Should probably be half)");
-			for(int i=0; i<songbytes.length-44; i=i+4){//for each 
-				songbytes[i]=(byte) ((((int)songbytes[i])/2) +((int)recordingbytes[i]));
-				songbytes[i+1]=(byte) ((((int)songbytes[i+1])/2) +((int)recordingbytes[i+1]));
-				songbytes[i+2]=(byte) ((((int)songbytes[i+2])/2) +((int)recordingbytes[i]));
-				songbytes[i+3]=(byte) ((((int)songbytes[i+3])/2) +((int)recordingbytes[i+1]));
+		try{
+			System.out.println("Render Wav : Path to song is: " + PathtoSong);
+			File SongFile=new File(PathtoSong);// already headerless song
+			File RecFile= new File(PathtoRec);// mono rec track
+
+			long sizeofsong=SongFile.length()/2;
+			long sizeofRec=RecFile.length();
+			assert(sizeofsong>sizeofRec);
+			System.out.println("Lenght of Song is " + sizeofsong);
+			System.out.println("Lenght of the Recording is : " + sizeofRec);
+			FileInputStream songinputStream= new FileInputStream(SongFile);
+			FileInputStream recinputStream= new FileInputStream(RecFile);
+			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-HL"));
+			byte[] songbytes= new byte[4];
+			byte[] recbytes=  new byte[2];
+			for(int i=0; i<sizeofRec; i=i+2){//for each 
+				songinputStream.read(songbytes);//songbytes now contains 1 sample of stero sound (4 bytes)
+				recinputStream.read(recbytes);//recbytes now contains 1 sample of mono sound (2 bytes)
+
+				songbytes[0]=(byte) ((((int)songbytes[0])/2) +((int)recbytes[0])/1.5);
+				songbytes[1]=(byte) ((((int)songbytes[1])/2) +((int)recbytes[1])/1.5);
+				songbytes[2]=(byte) ((((int)songbytes[2])/2) +((int)recbytes[0])/1.5);
+				songbytes[3]=(byte) ((((int)songbytes[3])/2) +((int)recbytes[1])/1.5);
+
+				out.write(songbytes);//writing the modified song byte buffer into the file
 			}
-			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-f"));
-			out.write(songbytes);// mixed stream
+			songinputStream.close();
+			recinputStream.close();
 			out.close();
+			System.gc();
+			System.out.println("Done with writing final headerless file");
+			//song is now in songname with tag -HL for headerless
 			String outputfilename=Tools.getFilename(SongName, "-final");
-			copyWaveFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV,outputfilename,AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
-			deleteFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV);
+			copyWaveFile(Tools.StoragePath+SongName+"-HL"+Tools.AUDIO_FILE_EXT_WAV,outputfilename,AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
+			deleteFile(Tools.StoragePath+SongName+"-HL"+Tools.AUDIO_FILE_EXT_WAV);
 			deleteFile(Tools.StoragePath+SongName+"-t"+Tools.AUDIO_FILE_EXT_WAV);
+			System.out.println("Wrapping up");
 			return outputfilename;
-		} catch (Exception e) {
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.err.println("Could not Fill Gap");
 			return null;
 		}
 	}
@@ -294,16 +304,33 @@ public class Tools {
 		return incomingBuffer;
 	}
 
-	//	public static String getFilename(String SongName, String Tag){
-	//		String filepath = Environment.getExternalStorageDirectory().getPath();
-	//		File file = new File(filepath,APP_FOLDER);
-	//
-	//		if(!file.exists()){
-	//			file.mkdirs();
-	//		}
-	//
-	//		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
-	//	}
+	public static void updateSettingsFile(boolean ConversionMode, String Background){
+		/*
+		 * Mode True = slow mode
+		 * 
+		 * Mode False = fast mode
+		 */
+		File tempFile= new File(StoragePath,"Settings.txt");
+		if(!tempFile.exists()){
+			createSettingsfile();
+			System.out.println("Seems like the settings files didnt exist!");
+		}
+		try{
+			FileWriter FW=new FileWriter(tempFile);
+			if(ConversionMode){
+				FW.write("mode=slow\n");
+			}
+			else{
+				FW.write("mode=fast\n");
+			}
+			FW.write(Background);
+			FW.flush();
+			FW.close();
+		}
+		catch(Exception e){
+			System.err.println("Couldnt change preference");
+		}
+	}
 
 	public static void loadSettings(){
 		System.out.println("in Load Settings");
@@ -339,6 +366,7 @@ public class Tools {
 					Tools.slowmode=false;
 					System.out.println("Defaulted to Fast Mode");
 				}
+				Tools.Background=R.readLine();
 				R.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -361,6 +389,7 @@ public class Tools {
 				tempFile.createNewFile();
 				FileWriter FW= new FileWriter(tempFile);
 				FW.write("mode=fast\n");
+				FW.write("bg_three");
 				FW.flush();
 				FW.close();
 			} catch (IOException e) {
