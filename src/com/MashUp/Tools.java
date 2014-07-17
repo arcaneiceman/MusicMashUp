@@ -147,11 +147,13 @@ public class Tools {
 			for(int i=0; i<sizeofRec; i=i+2){//for each 
 				songinputStream.read(songbytes);//songbytes now contains 1 sample of stero sound (4 bytes)
 				recinputStream.read(recbytes);//recbytes now contains 1 sample of mono sound (2 bytes)
-
-				songbytes[0]=(byte) ((((int)songbytes[0])/2) +((int)recbytes[0])/1.5);
-				songbytes[1]=(byte) ((((int)songbytes[1])/2) +((int)recbytes[1])/1.5);
-				songbytes[2]=(byte) ((((int)songbytes[2])/2) +((int)recbytes[0])/1.5);
-				songbytes[3]=(byte) ((((int)songbytes[3])/2) +((int)recbytes[1])/1.5);
+				
+				songbytes=CenterChannelFilter(songbytes);//song bytes are now filtered
+				
+				songbytes[0]=(byte) ((((int)songbytes[0])/2) +((int)recbytes[0])/2);
+				songbytes[1]=(byte) ((((int)songbytes[1])/2) +((int)recbytes[1])/2);
+				songbytes[2]=(byte) ((((int)songbytes[2])/2) +((int)recbytes[0])/2);
+				songbytes[3]=(byte) ((((int)songbytes[3])/2) +((int)recbytes[1])/2);
 
 				out.write(songbytes);//writing the modified song byte buffer into the file
 			}
