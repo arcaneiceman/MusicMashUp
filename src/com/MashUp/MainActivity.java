@@ -47,6 +47,7 @@ public class MainActivity extends ActionBarActivity {
 	static public boolean noFilter = true;
 	static public String Background = "bg_three";
 	private PopupWindow pw;
+	static public String NowSong="None";
 
 	static private boolean firsttrip=true;
 	// UI Variables
@@ -92,6 +93,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	protected void onCreate(Bundle savedInstanceState) {
+		System.out.println("on create called");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		((SeekBar) findViewById(R.id.seekBar1)).setEnabled(false);
@@ -112,30 +114,6 @@ public class MainActivity extends ActionBarActivity {
 		actionBar = getActionBar();
 		actionBar.setBackgroundDrawable(getResources().getDrawable(id));
 		actionBar.show();
-
-		// Get the message from the intent
-		Intent intent = getIntent();
-		if (intent != null) {
-			String message = intent.getStringExtra(Intent.EXTRA_TEXT);
-			
-			System.out.println("Intent message is " + message);
-			if(!firsttrip){
-				//So that this does not trigger on first create
-				System.out.println("Current song is " + currSong.getPath());
-				openfile_pressed(currSong.getPath());
-				System.out.println("Temporary");
-			}
-//			}
-//			System.out.println("Intent message is " + message);
-			//System.out.println("Current song is " + currSong.getPath());
-			//openfile_pressed();
-//			if (message != null) {
-//				if (message.equals("song_changed")) {
-//					openfile_pressed();
-//					return;
-//				}
-//			}
-		}
 		if(firsttrip){
 			ResetUI();
 			Tools.createAppDirectory();
@@ -187,6 +165,35 @@ public class MainActivity extends ActionBarActivity {
 				.getDrawable(id));
 		actionBar.setBackgroundDrawable(getResources().getDrawable(id));
 		invalidateOptionsMenu();
+		System.out.println("On Resume Called");
+		if(currSong!=null){
+			if(!currSong.getPath().equals(NowSong)){
+				//if curr song NOT the same as the song played right now... even if its un initualized...
+				openfile_pressed(currSong.getPath());
+			}
+			else{
+				System.out.println(" Its the same song!");
+			}
+		}
+		else{
+			System.out.println("Curr Song isnt not set yet!");
+		}
+		
+		
+		// Get the message from the intent
+//				Intent intent = getIntent();
+//				if (intent != null) {
+//					String message = intent.getStringExtra(Intent.EXTRA_TEXT);
+//					System.out.println("Intent message is " + message);
+//					if(currSong!=null){
+//						System.out.println("Current song is " + currSong.getPath());
+//					}
+//					if (message != null) {
+//						if (message.equals("song_changed")) {
+//							openfile_pressed(currSong.getPath());
+//							return;
+//						}
+//					}
 	}
 
 	public void EnableButton(Button button) {
@@ -576,6 +583,7 @@ public class MainActivity extends ActionBarActivity {
 				EnableButton(Filter1);
 				EnableButton(stopBtn);
 				EnableButton(recordBtn);
+				Status.setText("Status:Playing");
 			} else {
 				System.out
 				.println("Could not Open this Song : Song Format Unsupported");
