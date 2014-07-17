@@ -1,4 +1,4 @@
-package com.tracktrixlite;
+package com.MashUp;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -34,7 +34,7 @@ public class Tools {
 	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 	public static String StoragePath=android.os.Environment.getExternalStorageDirectory()+"/"+APP_FOLDER+"/";
-	public static boolean slowmode=true;
+	public static boolean slowmode=false;
 
 
 	private static ByteArrayOutputStream FillGap(String PathtoRecFile, long difference, long RecFileLength) throws Exception{
@@ -63,6 +63,7 @@ public class Tools {
 		/*
 		 * First We have to decide what type of song is coming....
 		 */
+		System.out.println("RENDER : PATH TO AUDIO is : " +PathtoSong);
 		if(PathtoSong.endsWith(".mp3")|| PathtoSong.endsWith(".MP3")){
 			//The Song is an MP3 File
 			return RenderMP3(PathtoSong,PathtoRec,SongName);
@@ -326,11 +327,11 @@ public class Tools {
 				System.out.println("Read line : " + mode);
 				System.out.println("File Found");
 				if(mode.contains("slow")){
-					Tools.slowmode=true;
+					slowmode=true;
 					System.out.println("In slow Mode");
 				}
 				else if(mode.contains("fast")){
-					Tools.slowmode=false;
+					slowmode=false;
 					System.out.println("In Fast Mode");
 				}
 				else{

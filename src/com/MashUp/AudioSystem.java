@@ -1,4 +1,4 @@
-package com.tracktrixlite;
+package com.MashUp;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class AudioSystem {
 		String FileName=file.getName();
 		if(FileName.endsWith(".mp3")|| FileName.endsWith(".MP3")){
 			//This song DOES end with mp3 so can process it! 
-
+			System.out.println("its an mp3!");
 			int pos = FileName.lastIndexOf(".");// since it either ends with .mp3 or .MP3 it HAS to contain a "."
 			String SongName= FileName.substring(0, pos);   // got SongName;
 			String PathtoOutput=Tools.StoragePath+SongName+"-play"+Tools.AUDIO_FILE_EXT_WAV;

@@ -1,4 +1,4 @@
-package com.tracktrixlite;
+package com.MashUp;
 
 
 import java.io.FileNotFoundException;
@@ -8,7 +8,8 @@ import java.io.IOException;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import com.tracktrixlite.Tools;
+
+import com.MashUp.Tools;
 
 public class RecorderStream{
 

@@ -1,4 +1,4 @@
-package com.tracktrixlite;
+package com.MashUp;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,10 +7,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import com.example.MashUp.SettingsActivity;
+import com.example.MashUp.Song;
+import com.example.MashUp.SongListActivity;
 import com.example.tracktrixlite.R;
-import com.example.tracktrixlite.SettingsActivity;
-import com.example.tracktrixlite.Song;
-import com.example.tracktrixlite.SongListActivity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.ActionBar;
@@ -246,6 +246,25 @@ public class MainActivity extends ActionBarActivity {
 		//			// playBtn.setC
 		//		}
 
+	}
+	
+	public void restartbutton_pressed(View view){
+		System.out.println("Restart Button Pressed");
+		//restart recording
+		EnableButton(LyricsButton);
+		EnableButton(Filter0);
+		EnableButton(Filter1);
+		EnableButton(recordBtn);
+		DisableButton(restartBtn);
+		DisableButton(renderBtn);
+		DisableButton(playBtn);
+		DisableButton(stopBtn);
+		recordBtn.setText("StopRec");
+		if(AudioSystem.currentsongplayer.getPlaying()==false){
+			playBtn.setBackgroundResource(R.drawable.pause_icon);
+		}
+		//Actual Stuff
+		AudioSystem.StartRecording();
 	}
 
 	public void stopbutton_pressed(View view) {

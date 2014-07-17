@@ -1,4 +1,4 @@
-package com.tracktrixlite;
+package com.MashUp;
 
 public interface PlayStream {
 
