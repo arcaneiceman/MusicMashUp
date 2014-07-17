@@ -58,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
 	TextView SongNameField;
 	TextView SongAlbumName;
 	TextView SongArtist;
+	TextView Status;
 	Button playBtn;
 	Button stopBtn;
 	Button recordBtn;
@@ -78,6 +79,7 @@ public class MainActivity extends ActionBarActivity {
 		renderBtn = (Button) findViewById(R.id.render_button);
 		stopBtn = (Button) findViewById(R.id.stop_button);
 		recordBtn = (Button) findViewById(R.id.record_button);
+		Status= (TextView) findViewById(R.id.TOP);
 	}
 
 	public void SetFonts() {
@@ -209,6 +211,7 @@ public class MainActivity extends ActionBarActivity {
 		SongNameField.setText("No Selection");
 		SongAlbumName.setText("N/A");
 		SongArtist.setText("N/A");
+		Status.setText("Status:StartUp");
 	}
 
 	public void play_pause_button_pressed(View view) {
@@ -223,11 +226,13 @@ public class MainActivity extends ActionBarActivity {
 				//pause is true which means we should play!
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
 				AudioSystem.PlaySong(); //Actual Code line
+				Status.setText("Status:Playing");
 			}
 			else{
 				//pause is false which means we should pause
 				playBtn.setBackgroundResource(R.drawable.play_icon);
 				AudioSystem.PauseSong();
+				Status.setText("Status:Paused");
 			}
 		}
 		else{
@@ -236,6 +241,7 @@ public class MainActivity extends ActionBarActivity {
 
 			/*Effects Area*/
 			playBtn.setBackgroundResource(R.drawable.pause_icon);
+			Status.setText("Status:Playing");
 		}
 		//		if (AudioSystem.currentsongplayer.getPlaying()) {
 		//			// if already playing
@@ -270,6 +276,7 @@ public class MainActivity extends ActionBarActivity {
 		DisableButton(playBtn);
 		DisableButton(stopBtn);
 		recordBtn.setText("StopRec");
+		Status.setText("Status:Rec");
 		if(AudioSystem.currentsongplayer.getPlaying()==false){
 			playBtn.setBackgroundResource(R.drawable.pause_icon);
 		}
@@ -286,6 +293,7 @@ public class MainActivity extends ActionBarActivity {
 			AudioSystem.StopSong();// Actual Code
 			//UI Effects Area 
 			playBtn.setBackgroundResource(R.drawable.play_icon);
+			Status.setText("Status:Stopped");
 		}	
 //		System.out.println("Stop Button Pressed");
 //		AudioSystem.StopSong();// Actual Code
@@ -336,6 +344,7 @@ public class MainActivity extends ActionBarActivity {
 			if (AudioSystem.currentsongplayer.getPlaying() == false) {
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
 			}
+			Status.setText("Status:Rec");
 			// Actual Stuff
 			AudioSystem.StartRecording();
 		} else {
@@ -348,6 +357,7 @@ public class MainActivity extends ActionBarActivity {
 			DisableButton(Filter1);
 			EnableButton(restartBtn);
 			EnableButton(renderBtn);
+			Status.setText("Status:Rec Stopped");
 		}
 
 	}
