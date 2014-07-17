@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<string-array name="ModeArray">
+	<item>Slow Mode (Low-end devices)</item>
+	<item>Fast Mode</item>
+</string-array>
+<string-array name="ModeValues">
+    <item>1</item>
+    <item>2</item>
+</string-array>
+<string-array name="BackgroundArray">
+	<item>Plain Black</item>
+	<item>Brown Wood</item>
+	<item>Multicolored Glass</item>
+	<item>Red Equalizer</item>
+	<item>Black Wood</item>
+	<item>Blue Wood</item>
+</string-array>
+<string-array name="BackgroundValues">
+    <item>bg_eight</item>
+    <item>bg_five</item>
+    <item>bg_four</item>
+    <item>bg_one</item>
+    <item>bg_three</item>
+    <item>bg_two</item>
+</string-array></resources>

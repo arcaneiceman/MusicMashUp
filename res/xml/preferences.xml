@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" 
+    >
+
+    <PreferenceCategory
+        android:key="Music"
+        android:title="Music" >
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/ModeArray"
+            android:entryValues="@array/ModeValues"
+            android:key="renderMode"
+            android:summary="Select the mode for converting the song"
+            android:title="Conversion Mode" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="Miscellaneous"
+        android:title="Miscellaneous" >
+        <ListPreference
+            android:defaultValue="bg_eight"
+            android:entries="@array/BackgroundArray"
+            android:entryValues="@array/BackgroundValues"
+            android:key="backgroundTheme"
+            android:summary="Select the theme for the application"
+            android:title="Theme" />
+        <Preference
+            android:summary="This application has been developed by Team Mob (c) 2014"
+            android:title="About Us" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

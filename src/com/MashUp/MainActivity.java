@@ -10,7 +10,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.example.MashUp.SettingsActivity;
 import com.example.MashUp.Song;
 import com.example.MashUp.SongListActivity;
-import com.example.tracktrixlite.R;
+import com.example.MashUp.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.ActionBar;
@@ -115,14 +115,24 @@ public class MainActivity extends ActionBarActivity {
 		Intent intent = getIntent();
 		if (intent != null) {
 			String message = intent.getStringExtra(Intent.EXTRA_TEXT);
+			
 			System.out.println("Intent message is " + message);
-			openfile_pressed();
-			if (message != null) {
-				if (message.equals("song_changed")) {
-					openfile_pressed();
-					return;
-				}
+			if(!firsttrip){
+				//So that this does not trigger on first create
+				System.out.println("Current song is " + currSong.getPath());
+				openfile_pressed(currSong.getPath());
+				System.out.println("Temporary");
 			}
+//			}
+//			System.out.println("Intent message is " + message);
+			//System.out.println("Current song is " + currSong.getPath());
+			//openfile_pressed();
+//			if (message != null) {
+//				if (message.equals("song_changed")) {
+//					openfile_pressed();
+//					return;
+//				}
+//			}
 		}
 		if(firsttrip){
 			ResetUI();
@@ -283,7 +293,7 @@ public class MainActivity extends ActionBarActivity {
 //		System.out.println("Stop Button Pressed");
 	}
 
-	public void openfile_pressed() {
+	public void openfile_pressed(String path) {
 
 		// HARD CODED TO OPEN ONE FILE RIGHT NOW
 		if (AudioSystem.songloaded == true) {
@@ -291,7 +301,7 @@ public class MainActivity extends ActionBarActivity {
 			AudioSystem.SystemReset();
 		}
 
-		String path = android.os.Environment.getExternalStorageDirectory() + "/Music/All.mp3";
+		//String path = android.os.Environment.getExternalStorageDirectory() + "/Music/All.mp3";
 		// Log.e("MSG", "Path is : " + path);
 		//System.out.println("Path is : " + currSong.getPath());
 		fetchmetadata = new MediaMetadataRetriever();

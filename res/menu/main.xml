@@ -14,7 +14,7 @@
             android:title="Open File"/>
         <item
             android:id="@+id/reset_button"
-            android:icon="@drawable/restartbutton"
+            android:icon="@drawable/reset_icon"
             android:orderInCategory="100"
             app:showAsAction="always"  
             android:title="Reset"/>
