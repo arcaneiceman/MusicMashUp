@@ -1,7 +1,6 @@
 package com.tracktrixlite;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,14 +8,14 @@ import java.io.IOException;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.os.Environment;
-
 import com.tracktrixlite.Tools;
+
 public class RecorderStream{
 
 	private String SongName;
 
-	private static final int RECORDER_SAMPLERATE = 8000;
+	private String FullPath;
+	private static final int RECORDER_SAMPLERATE = 44100;
 	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 
@@ -25,6 +24,7 @@ public class RecorderStream{
 	private Thread recordingThread = null;
 	private boolean isRecording = false;
 
+	boolean trip=true;
 	
 	public RecorderStream(String SName){
 		SongName=SName;
@@ -37,11 +37,15 @@ public class RecorderStream{
 			}
 		},"AudioRecorder Thread");
 		//recordingThread.setPriority(HIGH PRIORIY);
+		FullPath= Tools.getFilename(SongName,"-t");
 		System.out.println("Recorder Init Successful!");
 	}
 
 	public void startRecording(){
 		recorder.startRecording();
+		Tools.endtime=System.currentTimeMillis();
+		System.out.println("End Time measured"); 
+		System.out.println("Time diff is " + (Tools.endtime-Tools.starttime));
 		isRecording = true;
 		recordingThread.start();
 	}
@@ -66,11 +70,11 @@ public class RecorderStream{
 	
 	private void writeAudioDataToFile(){
 		byte data[] = new byte[bufferSize];
-		String filename = Tools.getFilename(SongName,"-t");
+		
 		FileOutputStream os = null;
 
 		try {
-			os = new FileOutputStream(filename);
+			os = new FileOutputStream(FullPath);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -79,11 +83,17 @@ public class RecorderStream{
 
 		if(null != os){
 			while(isRecording){
+				
+				
 				read = recorder.read(data, 0, bufferSize);
 
 				if(AudioRecord.ERROR_INVALID_OPERATION != read){
 					try {
 						os.write(data);
+//						if(trip){
+//							
+//							trip=false;
+//						}
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -98,6 +108,9 @@ public class RecorderStream{
 		}
 	}
 
+	public String getCurrentRecordingFullPath(){
+		return FullPath;
+	}
 //	private String getFilename(){
 //		String filepath = Environment.getExternalStorageDirectory().getPath();
 //		File file = new File(filepath,AUDIO_RECORDER_FOLDER);

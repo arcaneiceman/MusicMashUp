@@ -9,14 +9,23 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
+import android.media.MediaCodec;
+import android.media.MediaCodec.BufferInfo;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.os.Environment;
 
 public class Tools {
 
-	
+	//Timing variable
+	public static long starttime;
+	public static long endtime;
+
+
 	//ALL STATIC Variables
 	private static final int RECORDER_BPP = 16;
 	private static final int RECORDER_SAMPLERATE = 44100;
@@ -27,9 +36,15 @@ public class Tools {
 	public static String StoragePath=android.os.Environment.getExternalStorageDirectory()+"/"+APP_FOLDER+"/";
 	public static boolean slowmode=true;
 
-	
+
 	private static ByteArrayOutputStream FillGap(String PathtoRecFile, long difference, long RecFileLength) throws Exception{
 		ByteArrayOutputStream out= new ByteArrayOutputStream();
+		//		//Fill the start gap
+		//		long time=endtime-starttime;
+		//		int numofbytes=(44100*2*((int)time))/1000;
+		//		byte[] startgap= new byte[numofbytes];
+		//		out.write(startgap);
+		//		//End of FillStartGap
 		FileInputStream rec= new FileInputStream(PathtoRecFile);
 		byte[] inputdata = new byte[(int)RecFileLength];
 		rec.read(inputdata);//input data should now hold entire recording
@@ -43,39 +58,110 @@ public class Tools {
 		emptygaparray=null;
 		return out;
 	}
-	
-	public static void RenderAudio(String PathtoSong, String PathtoRec, String SongName){
-		File SongFile=new File(PathtoSong);
-		File RecFile= new File(PathtoRec);
-		long sizeofSong=SongFile.length()-44; // Size of song minus the 44 kb Header
-		long sizeofRec=RecFile.length();
-		assert(sizeofSong>sizeofRec);// make sure the recording is smaller
-		long difference=sizeofSong-sizeofRec;
-		try {			
-			byte[] recordingbytes=FillGap(PathtoRec,difference,sizeofRec).toByteArray();
-			FileInputStream songinput= new FileInputStream(PathtoSong);
-			byte[] songbytes = new byte[(int)sizeofSong];
-			songinput.read(songbytes);
-			songinput.close();
-			songbytes=CenterChannelFilter(songbytes);//filter the song
-			for(int i=0; i<songbytes.length; i=i+4){//for each 
-				songbytes[i]=(byte) ((((int)songbytes[i])/2) +((int)recordingbytes[i]));
-				songbytes[i+1]=(byte) ((((int)songbytes[i+1])/2) +((int)recordingbytes[i+1]));
-				songbytes[i+2]=(byte) ((((int)songbytes[i+2])/2) +((int)recordingbytes[i+2]));
-				songbytes[i+3]=(byte) ((((int)songbytes[i+3])/2) +((int)recordingbytes[i+3]));
+
+	public static String RenderAudio(String PathtoSong, String PathtoRec, String SongName){
+		/*
+		 * First We have to decide what type of song is coming....
+		 */
+		if(PathtoSong.endsWith(".mp3")|| PathtoSong.endsWith(".MP3")){
+			//The Song is an MP3 File
+			return RenderMP3(PathtoSong,PathtoRec,SongName);
+		}
+		else{
+			//The Song is a WAV File. 
+			return RenderWav(PathtoSong,PathtoRec,SongName);
+		}
+	}
+
+	private static String RenderMP3(String PathtoSong,String PathtoRec, String SongName){
+		try {
+			String FilteredSong=FilterMP3ToWavConveterter(PathtoSong,SongName);
+			if(FilteredSong==null){
+				//Failed to convert
+				return null;
 			}
-			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-f"));
-			out.write(songbytes);
+			
+			File SongFile=new File(FilteredSong);
+			File RecFile= new File(PathtoRec);
+			long sizeofsong=SongFile.length()/2;
+			long sizeofRec=RecFile.length();
+			assert(sizeofsong>sizeofRec);
+			System.out.println("Lenght of Song is " + sizeofsong + " half of this is : " + sizeofsong/2);
+			System.out.println("Lenght of the Recording is : " + sizeofRec + " (Should probably be half)");
+			FileInputStream songinputStream= new FileInputStream(SongFile);
+			FileInputStream recinputStream= new FileInputStream(RecFile);
+			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-HL"));
+			byte[] songbytes= new byte[4];
+			byte[] recbytes=  new byte[2];
+			for(int i=0; i<sizeofRec; i=i+2){//for each 
+				songinputStream.read(songbytes);//songbytes now contains 1 sample of stero sound (4 bytes)
+				recinputStream.read(recbytes);//recbytes now contains 1 sample of mono sound (2 bytes)
+
+				songbytes[0]=(byte) ((((int)songbytes[0])/2) +((int)recbytes[0])/2);
+				songbytes[1]=(byte) ((((int)songbytes[1])/2) +((int)recbytes[1])/2);
+				songbytes[2]=(byte) ((((int)songbytes[2])/2) +((int)recbytes[0])/2);
+				songbytes[3]=(byte) ((((int)songbytes[3])/2) +((int)recbytes[1])/2);
+
+				out.write(songbytes);//writing the modified song byte buffer into the file
+			}
+			songinputStream.close();
+			recinputStream.close();
 			out.close();
-			copyWaveFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV,Tools.getFilename(SongName, "-final"),AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
+			System.gc();
+			System.out.println("Done with writing final headerless file");
+			//song is now in songname with tag -HL for headerless
+			String outputfilename=Tools.getFilename(SongName, "-final");
+			copyWaveFile(Tools.StoragePath+SongName+"-HL"+Tools.AUDIO_FILE_EXT_WAV,outputfilename,AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
+			deleteFile(Tools.StoragePath+SongName+"-HL"+Tools.AUDIO_FILE_EXT_WAV);
 			deleteFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV);
-		} catch (Exception e) {
+			deleteFile(Tools.StoragePath+SongName+"-t"+Tools.AUDIO_FILE_EXT_WAV);
+			System.out.println("Wrapping up");
+			return outputfilename;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.err.println("Could not Fill Gap");
+			return null;
 		}
 	}
 
 
+	private static String RenderWav(String PathtoSong,String PathtoRec, String SongName){
+		File SongFile=new File(PathtoSong);
+		File RecFile= new File(PathtoRec);
+		long sizeofSong=SongFile.length()-44; // Size of song minus the 44 byte Header
+		sizeofSong=sizeofSong/2; //This would have been the lenght if the song was in mono
+		long sizeofRec=RecFile.length();
+		assert(sizeofSong>sizeofRec);// make sure the recording is smaller
+		long difference=sizeofSong-sizeofRec; //the differnce in length of a mono song vs mono recording
+		try {			
+			byte[] recordingbytes=FillGap(PathtoRec,difference,sizeofRec).toByteArray();
+			FileInputStream songinput= new FileInputStream(PathtoSong);
+			byte[] songbytes = new byte[(int)sizeofSong];
+			songinput.read(songbytes,44,(int)sizeofSong);//read after 44 bytes
+			songinput.close();
+			songbytes=CenterChannelFilter(songbytes);//filter the song
+			System.out.println("Lenght of the Song is : " + (songbytes.length-44) + " Half of this should be " + (songbytes.length-44)/2);
+			System.out.println("Lenght of the Recording is : " + recordingbytes.length + " (Should probably be half)");
+			for(int i=0; i<songbytes.length-44; i=i+4){//for each 
+				songbytes[i]=(byte) ((((int)songbytes[i])/2) +((int)recordingbytes[i]));
+				songbytes[i+1]=(byte) ((((int)songbytes[i+1])/2) +((int)recordingbytes[i+1]));
+				songbytes[i+2]=(byte) ((((int)songbytes[i+2])/2) +((int)recordingbytes[i]));
+				songbytes[i+3]=(byte) ((((int)songbytes[i+3])/2) +((int)recordingbytes[i+1]));
+			}
+			FileOutputStream out= new FileOutputStream(Tools.getFilename(SongName, "-f"));
+			out.write(songbytes);// mixed stream
+			out.close();
+			String outputfilename=Tools.getFilename(SongName, "-final");
+			copyWaveFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV,outputfilename,AudioRecord.getMinBufferSize(RECORDER_SAMPLERATE,RECORDER_CHANNELS,RECORDER_AUDIO_ENCODING));
+			deleteFile(Tools.StoragePath+SongName+"-f"+Tools.AUDIO_FILE_EXT_WAV);
+			deleteFile(Tools.StoragePath+SongName+"-t"+Tools.AUDIO_FILE_EXT_WAV);
+			return outputfilename;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Could not Fill Gap");
+			return null;
+		}
+	}
 
 	public static void copyWaveFile(String inFilename,String outFilename,int bufferSize){
 		FileInputStream in = null;
@@ -207,16 +293,16 @@ public class Tools {
 		return incomingBuffer;
 	}
 
-//	public static String getFilename(String SongName, String Tag){
-//		String filepath = Environment.getExternalStorageDirectory().getPath();
-//		File file = new File(filepath,APP_FOLDER);
-//
-//		if(!file.exists()){
-//			file.mkdirs();
-//		}
-//
-//		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
-//	}
+	//	public static String getFilename(String SongName, String Tag){
+	//		String filepath = Environment.getExternalStorageDirectory().getPath();
+	//		File file = new File(filepath,APP_FOLDER);
+	//
+	//		if(!file.exists()){
+	//			file.mkdirs();
+	//		}
+	//
+	//		return (file.getAbsolutePath() + AUDIO_RECORDER_TEMP_FILE +"-TrackTrixMix");
+	//	}
 
 	public static void loadSettings(){
 		System.out.println("in Load Settings");
@@ -247,31 +333,35 @@ public class Tools {
 					Tools.slowmode=false;
 					System.out.println("In Fast Mode");
 				}
+				else{
+					//it contained neiher whcih means someone messed with it...
+					Tools.slowmode=false;
+					System.out.println("Defaulted to Fast Mode");
+				}
 				R.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
 	public static void createSettingsfile(){
-		System.out.println("Here");
 		String filepath = Environment.getExternalStorageDirectory().getPath();
 		File file = new File(filepath,APP_FOLDER);
 
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		
+
 		File tempFile = new File(StoragePath,"Settings.txt");
 		if(!tempFile.exists()){//if file does not exist, create a new one
 			System.out.println("File did not exit");
 			try {
 				tempFile.createNewFile();
 				FileWriter FW= new FileWriter(tempFile);
-				FW.write("mode=slow\n");
+				FW.write("mode=fast\n");
 				FW.flush();
-			    FW.close();
+				FW.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -285,6 +375,155 @@ public class Tools {
 		if(!file.exists()){
 			file.mkdirs();
 		}
+	}
+
+	public static String FilterMP3ToWavConveterter(String PathtoInput, String SongName) throws IOException{
+		String outfilename=Tools.getFilename(SongName, "-f");
+		FileOutputStream outputStream=new FileOutputStream(outfilename);
+		MediaExtractor extractor = new MediaExtractor();
+		try {
+			extractor.setDataSource(PathtoInput);
+		} catch (Exception e) {
+			System.err.println("NO WORK");
+			outputStream.close();
+			return null;
+		}
+		MediaFormat format = extractor.getTrackFormat(0);
+		String mime = format.getString(MediaFormat.KEY_MIME);
+
+		// the actual decoder
+		MediaCodec decoder = MediaCodec.createDecoderByType(mime);
+		decoder.configure(format, null /* surface */, null /* crypto */, 0 /* flags */);
+		int sampleRate = format.getInteger(MediaFormat.KEY_SAMPLE_RATE);
+		assert(sampleRate==44100);
+		boolean done=false;
+		decoder.start();
+		ByteBuffer[] InputBuffers = decoder.getInputBuffers();
+		ByteBuffer[] OutputBuffers = decoder.getOutputBuffers();
+		ByteBuffer inputBuffer;
+		ByteBuffer outputBuffer;
+		int inputBufferIndex;
+		int outputBufferIndex;
+		byte[] outputdata;
+		extractor.selectTrack(0);
+		while(!done){
+			//System.out.println("Ruuing in loop");
+			inputBufferIndex=decoder.dequeueInputBuffer(-1);
+			if(inputBufferIndex>=0){
+				inputBuffer = InputBuffers[inputBufferIndex];
+				inputBuffer.clear();
+				int sampleSize =extractor.readSampleData(inputBuffer, 0 /* offset */);
+				//place some code here because -1 sample size means we stop
+				if(sampleSize==-1){
+					//end of stream
+					System.out.println("End of Stream");
+					done=true;
+					break;
+				}
+				long presentationTimeUs = extractor.getSampleTime();
+				extractor.advance();
+				decoder.queueInputBuffer(inputBufferIndex, 0, sampleSize, presentationTimeUs, 0);
+			}
+			BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+			outputBufferIndex= decoder.dequeueOutputBuffer(bufferInfo, 50);//check 
+			while(outputBufferIndex >=0){//make sure... this could be an if only
+				outputBuffer = OutputBuffers[outputBufferIndex];
+
+				outputBuffer.position(bufferInfo.offset);
+				outputBuffer.limit(bufferInfo.offset+ bufferInfo.size);
+
+				outputdata= new byte[bufferInfo.size];
+				outputBuffer.get(outputdata);
+				//System.out.println("Lenght of outputdata is " + outputdata.length);
+				outputdata=Tools.CenterChannelFilter(outputdata);
+
+				outputStream.write(outputdata, 0, outputdata.length);
+
+				decoder.releaseOutputBuffer(outputBufferIndex, false);
+				outputBufferIndex = decoder.dequeueOutputBuffer(bufferInfo, 0);
+			}
+		}
+		outputStream.close();
+		extractor.release();
+		decoder.stop();
+		decoder.release();
+		System.out.println("Done with convertion outfilename: " +outfilename);
+		return outfilename;
+	}
+
+	public static void MP3ToWavConverter(String PathtoInput, String PathtoOutput) throws IOException{
+		File outFile= new File(PathtoOutput);
+		if(!outFile.exists()){
+			outFile.createNewFile();
+		}
+		FileOutputStream outputStream=new FileOutputStream(outFile);
+		MediaExtractor extractor = new MediaExtractor();
+		try {
+			extractor.setDataSource(PathtoInput);
+		} catch (Exception e) {
+			System.err.println("NO WORK");
+			outputStream.close();
+			return;
+		}
+		MediaFormat format = extractor.getTrackFormat(0);
+		String mime = format.getString(MediaFormat.KEY_MIME);
+
+		// the actual decoder
+		MediaCodec decoder = MediaCodec.createDecoderByType(mime);
+		decoder.configure(format, null /* surface */, null /* crypto */, 0 /* flags */);
+		int sampleRate = format.getInteger(MediaFormat.KEY_SAMPLE_RATE);
+		assert(sampleRate==44100);
+		boolean done=false;
+		decoder.start();
+		ByteBuffer[] InputBuffers = decoder.getInputBuffers();
+		ByteBuffer[] OutputBuffers = decoder.getOutputBuffers();
+		ByteBuffer inputBuffer;
+		ByteBuffer outputBuffer;
+		int inputBufferIndex;
+		int outputBufferIndex;
+		byte[] outputdata;
+		extractor.selectTrack(0);
+		while(!done){
+			//System.out.println("Ruuing in loop");
+			inputBufferIndex=decoder.dequeueInputBuffer(-1);
+			if(inputBufferIndex>=0){
+				inputBuffer = InputBuffers[inputBufferIndex];
+				inputBuffer.clear();
+				int sampleSize =extractor.readSampleData(inputBuffer, 0 /* offset */);
+				//place some code here because -1 sample size means we stop
+				if(sampleSize==-1){
+					//end of stream
+					System.out.println("End of Stream");
+					done=true;
+					break;
+				}
+				long presentationTimeUs = extractor.getSampleTime();
+				extractor.advance();
+				decoder.queueInputBuffer(inputBufferIndex, 0, sampleSize, presentationTimeUs, 0);
+			}
+			BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+			outputBufferIndex= decoder.dequeueOutputBuffer(bufferInfo, 50);//check 
+			while(outputBufferIndex >=0){//make sure... this could be an if only
+				outputBuffer = OutputBuffers[outputBufferIndex];
+
+				outputBuffer.position(bufferInfo.offset);
+				outputBuffer.limit(bufferInfo.offset+ bufferInfo.size);
+
+				outputdata= new byte[bufferInfo.size];
+				outputBuffer.get(outputdata);
+
+				//outputdata=Tools.CenterChannelFilter(outputdata);
+
+				outputStream.write(outputdata, 0, outputdata.length);
+
+				decoder.releaseOutputBuffer(outputBufferIndex, false);
+				outputBufferIndex = decoder.dequeueOutputBuffer(bufferInfo, 0);
+			}
+		}
+		outputStream.close();
+		extractor.release();
+		decoder.stop();
+		decoder.release();
 	}
 }
 

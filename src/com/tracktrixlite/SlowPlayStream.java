@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import android.os.AsyncTask;
 
 public class SlowPlayStream implements PlayStream{
 
@@ -17,13 +17,15 @@ public class SlowPlayStream implements PlayStream{
 	String PathtoSong;
 	String SongName;
 	FileInputStream in;
-	RandomAccessFile in2;
 	//byte[] byteData = null; 
 	boolean CenterFilter;
 	boolean playing;
-	boolean badboolean;
+	boolean ispause;
+	boolean isRun;
+	boolean trip=false;
 	byte[] Buffer=new byte[4*1024] ; //4KB buffer
 	Thread playingThread;
+	AsyncTask<String, String, String> pThread;
 
 	public SlowPlayStream(){
 		//Dummby Constructor
@@ -38,84 +40,73 @@ public class SlowPlayStream implements PlayStream{
 		SongName=Sname;
 		CenterFilter=false;
 		playing=false;
+		ispause=false;
+		isRun=false;
 		if(in!=null){in=null;}
 		try {
 			in=new FileInputStream(SongFile);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		playingThread =new Thread(new Runnable() {
-			@Override
-			public void run() {
-				writeintoBuffer();
-			}
-		},"AudioPlayer Thread");
 
 		System.out.println("PlayStream Init Success!");
 	}
 
 
 	private void writeintoBuffer(){
-		while(badboolean){
-			while(playing){
-				try {
-					int retval=in.read(Buffer);
-					if(retval==-1){
-						AudioSystem.StopSong();
-					}	
-				} catch (Exception E){
-					E.printStackTrace();
-				}//Read into buffer
-
+		while(playing){
+			try{
+				if(ispause){
+					Thread.sleep(10);
+					continue;
+				}
+				int retval=in.read(Buffer);
+				if(retval==-1){
+					MainActivity.StaticStopCall();
+					if(AudioSystem.recording){
+						MainActivity.StaticStopRecordingCall();
+					}
+					//break;
+				}	
 				if(CenterFilter){
 					//apply center filter
 					Buffer=Tools.CenterChannelFilter(Buffer);
 				}
-				AudioInputBuffer.write(Buffer, 0, Buffer.length);	//writing into buffer		
+				AudioInputBuffer.write(Buffer, 0, Buffer.length);	//writing into buffer	
+				if(trip){//this means the first buffer of song has been placed
+					Tools.starttime=System.currentTimeMillis();
+					trip=false;
+				}
 			}
-
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-
+			catch(Exception e){
 				e.printStackTrace();
+				System.err.println("PlayThread Execption");
 			}
+
 		}
 	}
 	public void Play(){
-		if (playing)
-		{
-			return;
-		}
-		try
-		{			
-			AudioInputBuffer.play();
-			playing = true;     
-			badboolean=true;
-			if(!playingThread.isAlive()){
-				playingThread.start();
-			}
-
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			System.out.println("Couldnt find file!");
+		playing=true;
+		ispause=false;
+		AudioInputBuffer.play();
+		if(!isRun){
+			pThread= new AsyncTask<String , String , String>(){
+				@Override
+				protected String doInBackground(String... arg0) {
+					isRun=true;
+					writeintoBuffer();
+					isRun=false;
+					return null;
+				}
+			};
+			pThread.execute(SongName);
 		}
 	}
 
 	public void Pause(){
-		try
-		{
-			AudioInputBuffer.pause();
-			AudioInputBuffer.flush();
-
-			playing = false;
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		AudioInputBuffer.pause();
+		AudioInputBuffer.flush();
+		ispause=true;
 	}
 
 	public void Stop(){
@@ -124,11 +115,9 @@ public class SlowPlayStream implements PlayStream{
 			AudioInputBuffer.pause();
 			AudioInputBuffer.flush();
 			playing=false;
-			//playingThread=null;
 			in.close();
 			in=null;
-			in=new FileInputStream(SongFile);
-
+			in=new FileInputStream(SongFile);			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -137,7 +126,7 @@ public class SlowPlayStream implements PlayStream{
 	public void Reset(){//and destroy
 		try {
 			playing=false;
-			badboolean=false;
+			ispause=true;
 			playingThread=null;
 			in.close();
 			AudioInputBuffer.pause();
@@ -158,16 +147,33 @@ public class SlowPlayStream implements PlayStream{
 	public void setPlaying(boolean s){
 		playing=s;
 	}
-	
+
 	public String getSongName(){
 		return SongName;
 	}
-	
+
 	public boolean getFilterStatus(){
 		return CenterFilter;
 	}
-	
+
 	public void setFilterStatus(boolean a){
 		CenterFilter=a;
+	}
+	
+	public boolean getispause(){
+		return ispause;
+	}
+	
+
+	public void setTrip(boolean a){
+		trip=a;
+	}
+	
+	public boolean getTrip(){
+		return trip;
+	}
+	public String getCurrentSongFullPath() {
+		// TODO Auto-generated method stub
+		return PathtoSong;
 	}
 }

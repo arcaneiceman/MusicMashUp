@@ -20,6 +20,13 @@ public interface PlayStream {
 	
 	boolean getFilterStatus();
 
+	boolean getispause();
+	
+	public void setTrip(boolean a);
+	
+	public boolean getTrip();
+	
+	public String getCurrentSongFullPath();
 
 //	AudioTrack AudioInputBuffer;
 //	File SongFile;

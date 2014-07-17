@@ -1,18 +1,12 @@
 package com.tracktrixlite;
 
 import java.io.File;
-
-import com.converter.Converter;
-import com.decoder.JavaLayerException;
-
-import android.os.Environment;
+import java.io.IOException;
 
 public class AudioSystem {
 
 	public static PlayStream currentsongplayer=null;
 	public static RecorderStream micstream=null;
-	private static final String AUDIO_RECORDER_FOLDER = "Tractrix-Lite";
-	private static final String AUDIO_RECORDER_FILE_EXT_WAV = ".wav";
 
 	//State Variables
 	public static boolean songloaded=false;
@@ -38,7 +32,23 @@ public class AudioSystem {
 			}
 		}
 		else{
-			//this song does not end with mp3 or has no extension.
+			//this song does not end with mp3
+			if(FileName.endsWith("WAV") || FileName.endsWith("wav")){
+				//its a wav file probably from rendering
+				int pos = FileName.lastIndexOf(".");
+				String SongName= FileName.substring(0, pos);
+				
+				if(currentsongplayer!=null){
+					currentsongplayer=null;
+				}
+				currentsongplayer = new SlowPlayStream(PathtoSong,SongName);
+				songloaded=true;
+				System.out.println("Successfully Loaded Song in Slow Mode");
+				return true;
+			}
+			//its not a wav or mp3 file so it cant be loaded
+			
+			
 			return false;
 		}
 	}
@@ -48,6 +58,7 @@ public class AudioSystem {
 			currentsongplayer=null;
 		}
 		currentsongplayer = new FastPlayStream(PathtoSong,SongName);
+		songloaded=true;
 		System.out.println("Successfully Loaded Song in Fast Mode");
 		return true;
 	}
@@ -60,14 +71,11 @@ public class AudioSystem {
 		}
 		else{
 			//file will need to be converted
-			Converter ConModule= new Converter();
 			System.out.println("Starting Conversion");
 			try {
-				ConModule.convert(PathtoSong,PathtoOutput);
-			} catch (JavaLayerException e) {
-				System.out.println("Failed to Convert Song to WAV");
+				Tools.MP3ToWavConverter(PathtoSong, PathtoOutput);
+			} catch (IOException e) {
 				e.printStackTrace();
-				return false;
 			}
 			System.out.println("Done with Conversion");
 
@@ -100,6 +108,7 @@ public class AudioSystem {
 		currentsongplayer.Reset();
 		currentsongplayer=null;
 		songloaded=false;
+		System.gc();
 		//other things to reset
 	}
 
@@ -108,9 +117,17 @@ public class AudioSystem {
 			System.out.println("There is no song to start recording with");
 			return;
 		}
-		micstream=new RecorderStream(currentsongplayer.getSongName());
 		StopSong();
+		micstream=new RecorderStream(currentsongplayer.getSongName());
+		currentsongplayer.setTrip(true);
 		PlaySong();
+		while(currentsongplayer.getTrip()){
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		micstream.startRecording();
 		recording=true;
 	}

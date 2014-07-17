@@ -1,12 +1,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.tracktrixlite.MainActivity" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
-
+<!--     <item
+        android:id="@+id/menu_overflow"
+        android:icon="@drawable/abs__ic_menu_moreoverflow_normal_holo_light"
+        android:orderInCategory="11111"
+        android:showAsAction="always">
+ -->        <item
+            android:id="@+id/openfilebhv"
+            android:icon="@drawable/openfilebutton"
+            android:orderInCategory="100"
+            app:showAsAction="always"  
+            android:title="Open File"/>
+        <item
+            android:id="@+id/reset_button"
+            android:icon="@drawable/restartbutton"
+            android:orderInCategory="100"
+            app:showAsAction="always"  
+            android:title="Reset"/>
+        <item
+            android:id="@+id/settingsbhv"
+            android:icon="@drawable/playlistbutton"
+            android:orderInCategory="100"
+            app:showAsAction="always"  
+            android:title="Settings"/>
+        <item
+            android:id="@+id/exit_button"
+            android:icon="@drawable/exiticon"
+            android:orderInCategory="100"
+            app:showAsAction="always"  
+            android:title="Exit"/>
+    <!-- </item>
+ -->
 </menu>
