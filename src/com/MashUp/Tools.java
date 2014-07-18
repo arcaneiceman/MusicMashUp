@@ -26,11 +26,10 @@ public class Tools {
 	public static long starttime;
 	public static long endtime;
 
-
 	//ALL STATIC Variables
 	private static final int RECORDER_BPP = 16;
 	private static final int RECORDER_SAMPLERATE = 44100;
-	public static final String APP_FOLDER = "Tracktrix-Lite";
+	public static final String APP_FOLDER = "MashUp";
 	public static final String AUDIO_FILE_EXT_WAV = ".wav";
 	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
