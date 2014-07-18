@@ -1,6 +1,8 @@
 package com.MashUp;
 
 import java.io.BufferedReader;
+import java.io.File;
+
 import java.io.InputStreamReader;
 
 import org.apache.http.HttpResponse;
@@ -166,7 +168,9 @@ public class MainActivity extends ActionBarActivity {
 		if(currSong!=null){
 			if(!currSong.getPath().equals(NowSong)){
 				//if curr song NOT the same as the song played right now... even if its un initualized...
+				NowSong=currSong.getPath();
 				openfile_pressed(currSong.getPath());
+				
 			}
 			else{
 				System.out.println(" Its the same song!");
@@ -280,7 +284,7 @@ public class MainActivity extends ActionBarActivity {
 		DisableButton(playBtn);
 		DisableButton(stopBtn);
 		recordBtn.setText("StopRec");
-		Status.setText("Status:Rec");
+		Status.setText("Status:Recording");
 		if(AudioSystem.currentsongplayer.getPlaying()==false){
 			playBtn.setBackgroundResource(R.drawable.pause_icon);
 		}
@@ -348,7 +352,7 @@ public class MainActivity extends ActionBarActivity {
 			if (AudioSystem.currentsongplayer.getPlaying() == false) {
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
 			}
-			Status.setText("Status:Rec");
+			Status.setText("Status:Recording");
 			// Actual Stuff
 			AudioSystem.StartRecording();
 		} else {
@@ -361,7 +365,7 @@ public class MainActivity extends ActionBarActivity {
 			DisableButton(Filter1);
 			EnableButton(restartBtn);
 			EnableButton(renderBtn);
-			Status.setText("Status:Rec Stopped");
+			Status.setText("Status:Recording Stopped");
 		}
 
 	}
@@ -498,7 +502,22 @@ public class MainActivity extends ActionBarActivity {
 					ResetUI();
 					System.out.println("System Reset! Now I would have started like we just started with the new song");
 //					//Call new song! 
-					//openfile_pressed()
+					try{
+						//NewSongPath is the result path of the new songS
+						currSong=new Song(0,currSong.getTitle()+"-MashUp",currSong.getArtist(),NewSongPath);
+						NowSong=NewSongPath;
+						SongNameField.setText(currSong.getTitle()+"-MashUp");
+						SongArtist.setText(currSong.getArtist());
+						SongAlbumName.setText("MashUp");
+						openfile_pressed(NewSongPath);
+					}
+					catch(Exception E){
+						//Coulndt start song or set tag or something
+						System.out.println("Error at tag setting and statting music");
+						Status.setText("Status:Error State - Please Reset");
+					}
+					
+					
 				}
 				else{
 					//Answer From Render was Null
@@ -564,16 +583,21 @@ public class MainActivity extends ActionBarActivity {
 
 				// set UI Variables
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
-
-				SongNameField
-				.setText(fetchmetadata
-						.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-				SongAlbumName
-				.setText(fetchmetadata
-						.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
-				SongArtist
-				.setText(fetchmetadata
-						.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
+				
+				String temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+				if( temp!=null ){
+					SongNameField.setText(temp);
+				}
+				
+				temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
+				if( (temp!=null) ){
+					SongAlbumName.setText(temp);
+				}
+				
+				temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+				if( (temp!=null) ){
+					SongArtist.setText(temp);
+				}
 
 				EnableButton(playBtn);
 				EnableButton(LyricsButton);
@@ -592,7 +616,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	public static void StaticStopCall() {
-		System.out.println("Here in static call");
+		AudioSystem.StopSong();
 		//playBtn.setBackgroundResource(R.drawable.play_icon);
 	}
 
