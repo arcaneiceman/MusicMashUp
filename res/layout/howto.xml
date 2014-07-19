@@ -122,6 +122,21 @@
                     android:padding="2dp"
                     android:text=" icon" />
             </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center" >
+                
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:text="- IMPORTANT: You must use headphones while recording! Without this, the filter will not work!" />
+                
+                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -212,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text=" to mix your vocals with the song" />
+                    android:text=" to mix your vocals and song" />
             </LinearLayout>
 
             <LinearLayout
@@ -252,7 +267,28 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_btn_playlist_pressed" />
             </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center" >
+                 <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="- Your recordings are in your storage/MashUp folder with the tag '-final'" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
+ <ImageButton
+        android:id="@+id/helpView_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:src="@drawable/close_button" />
 </RelativeLayout>

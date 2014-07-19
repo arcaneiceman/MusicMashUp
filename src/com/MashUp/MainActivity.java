@@ -1,7 +1,6 @@
 package com.MashUp;
 
 import java.io.BufferedReader;
-import java.io.File;
 
 import java.io.InputStreamReader;
 
@@ -48,6 +47,7 @@ public class MainActivity extends ActionBarActivity {
 	static public boolean noFilter = true;
 	private PopupWindow pw;
 	static public String NowSong="None";
+	private PopupWindow helpwindow;
 
 	static private boolean firsttrip=true;
 	// UI Variables
@@ -63,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
 	Button playBtn;
 	Button stopBtn;
 	Button recordBtn;
+	Button howToBtn;
 	ProgressDialog dialog;
 	ProgressDialog Renderdialog;
 	MediaMetadataRetriever fetchmetadata;
@@ -81,6 +82,7 @@ public class MainActivity extends ActionBarActivity {
 		stopBtn = (Button) findViewById(R.id.stop_button);
 		recordBtn = (Button) findViewById(R.id.record_button);
 		Status= (TextView) findViewById(R.id.TOP);
+		howToBtn= (Button) findViewById(R.id.howtoBtn);
 	}
 
 	public void SetFonts() {
@@ -302,7 +304,12 @@ public class MainActivity extends ActionBarActivity {
 			//UI Effects Area 
 			playBtn.setBackgroundResource(R.drawable.play_icon);
 			Status.setText("Status:Stopped");
-		}	
+		}
+		else{
+			playBtn.setBackgroundResource(R.drawable.play_icon);
+			//UI temp soloution above
+		}
+		
 		//		System.out.println("Stop Button Pressed");
 		//		AudioSystem.StopSong();// Actual Code
 		//		playBtn.setBackgroundResource(R.drawable.play_icon);
@@ -471,6 +478,28 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 		// System.out.println("Lyrics Button Pressed");
+	}
+	
+	
+	public void howto_pressed(View view){
+		LayoutInflater inflater = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.howto, null, false);
+		helpwindow = new PopupWindow(layout,
+				(this.findViewById(R.id.screen)).getWidth() - 20,
+				(this.findViewById(R.id.screen)).getHeight() - 20, true);
+		helpwindow.setAnimationStyle(R.style.PopupWindowAnimation);
+		helpwindow.showAtLocation(this.findViewById(R.id.screen), Gravity.CENTER, 0, 0);
+		//helpView_close
+		ImageButton btncancel = (ImageButton) layout
+				.findViewById(R.id.helpView_close);
+		btncancel.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				helpwindow.dismiss();
+			}
+		});
+		
 	}
 
 	public void renderbutton_pressed(View view) {
