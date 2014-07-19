@@ -62,11 +62,11 @@ public class SlowPlayStream implements PlayStream{
 				}
 				int retval=in.read(Buffer);
 				if(retval==-1){
-					MainActivity.StaticStopCall();
 					if(AudioSystem.recording){
 						MainActivity.StaticStopRecordingCall();
 					}
-					//break;
+					MainActivity.StaticStopCall();
+					break;
 				}	
 				if(CenterFilter){
 					//apply center filter

@@ -123,10 +123,10 @@ public class FastPlayStream implements PlayStream{
 					if(sampleSize==-1){
 						//end of stream
 						System.out.println("End of Stream");
-						MainActivity.StaticStopCall();
 						if(AudioSystem.recording){
 							MainActivity.StaticStopRecordingCall();
 						}
+						MainActivity.StaticStopCall();
 						break;
 					}
 

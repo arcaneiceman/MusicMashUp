@@ -170,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
 				//if curr song NOT the same as the song played right now... even if its un initualized...
 				NowSong=currSong.getPath();
 				openfile_pressed(currSong.getPath());
-				
+
 			}
 			else{
 				System.out.println(" Its the same song!");
@@ -179,30 +179,30 @@ public class MainActivity extends ActionBarActivity {
 		else{
 			System.out.println("Curr Song isnt not set yet!");
 		}
-		
-		
+
+
 		// Get the message from the intent
-//				Intent intent = getIntent();
-//				if (intent != null) {
-//					String message = intent.getStringExtra(Intent.EXTRA_TEXT);
-//					System.out.println("Intent message is " + message);
-//					if(currSong!=null){
-//						System.out.println("Current song is " + currSong.getPath());
-//					}
-//					if (message != null) {
-//						if (message.equals("song_changed")) {
-//							openfile_pressed(currSong.getPath());
-//							return;
-//						}
-//					}
+		//				Intent intent = getIntent();
+		//				if (intent != null) {
+		//					String message = intent.getStringExtra(Intent.EXTRA_TEXT);
+		//					System.out.println("Intent message is " + message);
+		//					if(currSong!=null){
+		//						System.out.println("Current song is " + currSong.getPath());
+		//					}
+		//					if (message != null) {
+		//						if (message.equals("song_changed")) {
+		//							openfile_pressed(currSong.getPath());
+		//							return;
+		//						}
+		//					}
 	}
 
-	public void EnableButton(Button button) {
+	public static void EnableButton(Button button) {
 		button.setEnabled(true);
 		button.setAlpha(1f);
 	}
 
-	public void DisableButton(Button button) {
+	public static void DisableButton(Button button) {
 		button.setEnabled(false);
 		button.setAlpha(0.5f);
 	}
@@ -271,7 +271,7 @@ public class MainActivity extends ActionBarActivity {
 		//		}
 
 	}
-	
+
 	public void restartbutton_pressed(View view){
 		System.out.println("Restart Button Pressed");
 		//restart recording
@@ -303,10 +303,10 @@ public class MainActivity extends ActionBarActivity {
 			playBtn.setBackgroundResource(R.drawable.play_icon);
 			Status.setText("Status:Stopped");
 		}	
-//		System.out.println("Stop Button Pressed");
-//		AudioSystem.StopSong();// Actual Code
-//		playBtn.setBackgroundResource(R.drawable.play_icon);
-//		System.out.println("Stop Button Pressed");
+		//		System.out.println("Stop Button Pressed");
+		//		AudioSystem.StopSong();// Actual Code
+		//		playBtn.setBackgroundResource(R.drawable.play_icon);
+		//		System.out.println("Stop Button Pressed");
 	}
 
 	public void openfile_pressed(String path) {
@@ -501,7 +501,7 @@ public class MainActivity extends ActionBarActivity {
 					AudioSystem.SystemReset();
 					ResetUI();
 					System.out.println("System Reset! Now I would have started like we just started with the new song");
-//					//Call new song! 
+					//					//Call new song! 
 					try{
 						//NewSongPath is the result path of the new songS
 						currSong=new Song(0,currSong.getTitle()+"-MashUp",currSong.getArtist(),NewSongPath);
@@ -516,8 +516,8 @@ public class MainActivity extends ActionBarActivity {
 						System.out.println("Error at tag setting and statting music");
 						Status.setText("Status:Error State - Please Reset");
 					}
-					
-					
+
+
 				}
 				else{
 					//Answer From Render was Null
@@ -583,17 +583,17 @@ public class MainActivity extends ActionBarActivity {
 
 				// set UI Variables
 				playBtn.setBackgroundResource(R.drawable.pause_icon);
-				
+
 				String temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
 				if( temp!=null ){
 					SongNameField.setText(temp);
 				}
-				
+
 				temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
 				if( (temp!=null) ){
 					SongAlbumName.setText(temp);
 				}
-				
+
 				temp=fetchmetadata.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
 				if( (temp!=null) ){
 					SongArtist.setText(temp);
@@ -610,27 +610,19 @@ public class MainActivity extends ActionBarActivity {
 				System.out
 				.println("Could not Open this Song : Song Format Unsupported");
 			}
-
 		}
 
 	}
 
 	public static void StaticStopCall() {
 		AudioSystem.StopSong();
-		//playBtn.setBackgroundResource(R.drawable.play_icon);
-	}
+	} 
 
 	public static void StaticStopRecordingCall(){
 		AudioSystem.StopRecording();
-		//		recordBtn.setText("Record");
-		//		recordBtn.setEnabled(false);
-		//		LyricsButton.setEnabled(false);
-		//		Filter0.setEnabled(false);
-		//		Filter1.setEnabled(false);
-		//		//you can now restart or render
-		//		restartBtn.setEnabled(true);
-		//		renderBtn.setEnabled(true);
 	}
+	
+	
 
 
 }
